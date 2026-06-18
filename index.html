@@ -17,16 +17,16 @@
 <header class="site-header">
   <div class="wrap">
     <nav class="nav" aria-label="メインナビゲーション">
-      <a class="brand" href="index.html">
+      <a class="brand" href="#home">
         <span class="ja">小野 歩</span><span class="en">Ayumu Ono</span>
       </a>
       <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span><span></span></button>
       <ul class="nav-links">
-        <li><a href="index.html" class="is-active">ホーム</a></li>
-        <li><a href="profile.html">プロフィール</a></li>
-        <li><a href="books.html">著書</a></li>
-        <li><a href="media.html">メディア・活動</a></li>
-        <li class="nav-cta"><a class="btn btn--primary" href="contact.html">お問い合わせ</a></li>
+        <li><a href="#home" class="is-active">ホーム</a></li>
+        <li><a href="#profile">プロフィール</a></li>
+        <li><a href="#books">著書</a></li>
+        <li><a href="#media">メディア・活動</a></li>
+        <li class="nav-cta"><a class="btn btn--primary" href="#contact">お問い合わせ</a></li>
       </ul>
     </nav>
   </div>
@@ -34,7 +34,7 @@
 
 <main>
 <!-- ===== Hero ===== -->
-<section class="hero">
+<section class="hero" id="home">
   <div class="wrap hero-grid">
     <div class="hero-copy reveal">
       <p class="hero-tag">著者 ／ 経営者 ／ コミュニティ主宰</p>
@@ -42,8 +42,8 @@
       <p class="hero-lead">ITエンジニアのキャリアに、長く向き合ってきました。1,000人を超えるキャリア相談と、毎月3,000人が集う学びの場づくり、そして3冊の著書を通じて、「IT業界で働くすべての人の可能性を広げる」ことに取り組んでいます。</p>
       <p class="hero-name"><b>小野 歩</b>　<span class="en">Ayumu Ono</span><br />株式会社テックワークス 代表取締役</p>
       <div class="hero-actions">
-        <a class="btn btn--primary" href="profile.html">プロフィールを見る <span class="arrow">→</span></a>
-        <a class="btn btn--ghost" href="contact.html">講演・取材のご依頼</a>
+        <a class="btn btn--primary" href="#profile">プロフィールを見る <span class="arrow">→</span></a>
+        <a class="btn btn--ghost" href="#contact">講演・取材のご依頼</a>
       </div>
     </div>
     <div class="portrait reveal" aria-hidden="true">
@@ -66,63 +66,166 @@
   </div>
 </section>
 
-<!-- ===== Profile teaser ===== -->
-<section class="section">
-  <div class="wrap split">
-    <div class="portrait reveal" aria-hidden="true" style="max-width:300px;">
-      <span class="mono">歩</span>
-    </div>
+<!-- ===== Profile : Story ===== -->
+<section class="section" id="profile">
+  <div class="wrap split" style="align-items:start;">
     <div class="reveal">
+      <div class="portrait" aria-hidden="true" style="aspect-ratio:4/5;">
+        <span class="ph-note">PHOTO</span>
+        <span class="mono">歩</span>
+        <span class="badge"><b>小野 歩</b>／ プロフィール写真が入ります</span>
+      </div>
+      <div class="card" style="margin-top:24px;">
+        <h3 style="font-size:1rem;">基本情報</h3>
+        <p style="font-size:.9rem; color:var(--muted); margin:0; line-height:2;">
+          出身：大分県大分市<br />
+          学歴：九州大学大学院 修了<br />
+          現職：株式会社テックワークス 代表取締役<br />
+          活動：執筆・登壇・コミュニティ運営<br />
+          座右の銘：頼まれごとは試されごと
+        </p>
+      </div>
+    </div>
+    <div class="reveal prose">
       <p class="eyebrow">Profile</p>
-      <p class="lead-quote"><span class="mark">「</span>願望は、知識から生まれる。<span class="mark">」</span></p>
-      <p style="color:var(--muted);">大分県大分市出身。九州大学大学院を修了後、NECでバックエンドのアプリケーション開発に従事。その後独立し、2022年に株式会社テックワークスを創業しました。システム開発・ITスクール運営・キャリア支援を軸に、「チームの力でITエンジニアの価値を最大化する」ことを使命に活動しています。</p>
-      <p style="margin-top:1.4rem;"><a class="btn btn--ghost" href="profile.html">経歴と想いを読む <span class="arrow">→</span></a></p>
+      <h2 style="font-size:clamp(1.6rem,3.4vw,2.4rem); margin:.2rem 0 1.2rem;">小野 歩</h2>
+      <p class="lede">「ITエンジニアの価値を、もっと高められるはずだ」——その確信が、すべての出発点でした。</p>
+      <p>大分県大分市に生まれ、九州大学大学院を修了後、NECに入社。バックエンドのアプリケーション開発の現場で、ものづくりの面白さと、チームで成果を出すことの難しさ・奥深さを学びました。</p>
+      <p>やがて「エンジニア一人ひとりが、もっと力を発揮できる環境をつくりたい」という想いが強くなり、独立を決意。はじめはイベント運営や営業代行で事業の基盤をつくり、信頼できるエンジニアチームを少しずつ組成。2022年7月、株式会社テックワークスを創業しました。</p>
+      <p>現在は、システム開発・ITスクール運営・IT人材のキャリア支援を3本柱に事業を展開。これまでに1,000人を超えるエンジニアのキャリア相談に応じ、毎月3,000人規模が参加するIT勉強会・交流会「tecHub」を主宰しています。その現場で得た知見は、3冊の著書として結実しました。</p>
+      <p>「願望は知識から生まれる」。選択肢を知らなければ、人は願うことすらできない——だからこそ、IT業界で働くすべての人に「知る」きっかけを届けたい。それが、書き、育て、つなぐという活動の根っこにある想いです。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Profile : Career ===== -->
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Career</p>
+      <h2>歩み</h2>
+    </div>
+    <ul class="timeline reveal" style="max-width:760px;">
+      <li>
+        <div class="yr">大分県大分市</div>
+        <h4>原点</h4>
+        <p>大分に生まれ育つ。のちに九州大学大学院へ進学。</p>
+      </li>
+      <li>
+        <div class="yr">大学院 修了</div>
+        <h4>九州大学大学院</h4>
+        <p>専門課程を修了し、技術への基礎を築く。</p>
+      </li>
+      <li>
+        <div class="yr">NEC</div>
+        <h4>バックエンド開発エンジニア</h4>
+        <p>大手メーカーでアプリケーション開発に従事。開発現場とチームづくりの実際を経験する。</p>
+      </li>
+      <li>
+        <div class="yr">独立 準備期</div>
+        <h4>事業の基盤づくり</h4>
+        <p>イベント運営・営業代行などで事業の土台をつくり、エンジニアチームを組成していく。</p>
+      </li>
+      <li>
+        <div class="yr">2022.07</div>
+        <h4>株式会社テックワークス 創業</h4>
+        <p>「チームの力でITエンジニアの価値を最大化する」を掲げ起業。秋葉原を拠点に事業を開始。</p>
+      </li>
+      <li>
+        <div class="yr">現在</div>
+        <h4>著者・経営者・コミュニティ主宰として</h4>
+        <p>3冊の著書を出版。月3,000人規模の勉強会「tecHub」を運営し、キャリア支援・人材育成に取り組む。</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== Profile : Values ===== -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Values</p>
+      <h2>大切にしていること</h2>
+    </div>
+    <div class="grid grid--3">
+      <div class="value reveal"><span class="v-num">01</span><div><h4>願望は知識から生まれる</h4><p>選択肢を知ることが、可能性の出発点。だから「知る」きっかけを届け続ける。</p></div></div>
+      <div class="value reveal"><span class="v-num">02</span><div><h4>頼まれごとは試されごと</h4><p>求められたことに全力で応える。その積み重ねが信頼と次の機会をつくる。</p></div></div>
+      <div class="value reveal"><span class="v-num">03</span><div><h4>チームの力を信じる</h4><p>個人の限界を超える成果は、誠実なチームから生まれると考えている。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Profile : Mission / Vision ===== -->
+<section class="section section--navy">
+  <div class="wrap">
+    <div class="grid grid--2">
+      <div class="reveal">
+        <p class="eyebrow">Mission</p>
+        <h2 style="font-size:clamp(1.5rem,3.2vw,2.1rem); line-height:1.6;">チームの力で<br />ITエンジニアの価値を最大化する</h2>
+      </div>
+      <div class="reveal">
+        <p class="eyebrow">Vision</p>
+        <p style="font-size:1.15rem; color:#dbe4ef; line-height:1.9;">プロフェッショナル人材の輩出により、IT課題を解決し、豊かな社会の実現に貢献する。</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ===== Books ===== -->
-<section class="section section--alt">
+<section class="section section--alt" id="books">
   <div class="wrap">
     <div class="section-head reveal">
       <p class="eyebrow">Books</p>
       <h2>3冊の著書</h2>
-      <p>「これからITで働く人」「現場の最前線で働く人」へ。現場とキャリアのリアルを、できるだけわかりやすい言葉で届けています。</p>
+      <p>「これからIT業界で働く人」から「現場で活躍するエンジニア」まで。キャリアと働き方のリアルを、わかりやすい言葉で届ける3冊。</p>
     </div>
-    <div class="grid grid--3">
+    <div style="display:grid; gap:28px; max-width:880px;">
+
+      <!-- Book 1 -->
       <article class="book reveal">
         <div class="book-cover b3"><span class="bc-pub">Impress</span><span class="bc-title">IT仕事図鑑</span></div>
         <div class="book-info">
-          <h3>IT仕事図鑑</h3>
-          <div class="book-meta">インプレス ／ 2026年</div>
-          <p>はたらく現場と人がイラストでぜんぶわかる。細分化したIT業界の職種の全体像を、体系的に見渡せる一冊。（共著：増井敏克）</p>
-          <a class="more" href="books.html">詳しく見る <span class="arrow">→</span></a>
+          <h3>IT仕事図鑑 はたらく現場と人がイラストでぜんぶわかる！</h3>
+          <div class="book-meta">インプレス ／ 2026年刊 ／ 共著：増井敏克</div>
+          <p>「IT業界に興味はあるけれど、職種の全体像がわからない」——細分化・多様化が進むIT業界の仕事を、イラストとともに体系的に見渡せる一冊。これから業界を目指す人にも、キャリアを考え直したい人にも、地図のように使えるガイドです。</p>
+          <div class="hero-actions">
+            <a class="btn btn--primary" href="https://amzn.asia/d/0hCX4JyD" target="_blank" rel="noopener">Amazonで見る <span class="arrow">→</span></a>
+          </div>
         </div>
       </article>
+
+      <!-- Book 2 -->
       <article class="book reveal">
         <div class="book-cover b2"><span class="bc-pub">講談社</span><span class="bc-title">ITエンジニア1年目の教科書</span></div>
         <div class="book-info">
           <h3>ITエンジニア1年目の教科書</h3>
           <div class="book-meta">講談社</div>
-          <p>これからエンジニアとして歩み出す人へ。最初の1年でつまずきやすいポイントと、現場で必要な考え方をまとめた入門書。</p>
-          <a class="more" href="books.html">詳しく見る <span class="arrow">→</span></a>
+          <p>これからエンジニアとして第一歩を踏み出す人へ。最初の1年でつまずきやすいポイント、現場で求められる立ち回りや考え方を、先輩の視点でやさしく解説。新人エンジニアとその育成担当者に向けた入門書です。</p>
+          <div class="hero-actions">
+            <a class="btn btn--ghost" href="https://www.amazon.co.jp/s?k=ITエンジニア1年目の教科書+小野歩" target="_blank" rel="noopener">Amazonで探す <span class="arrow">→</span></a>
+          </div>
         </div>
       </article>
+
+      <!-- Book 3 -->
       <article class="book reveal">
         <div class="book-cover"><span class="bc-pub">日経BP</span><span class="bc-title">ITエンジニア働き方超大全</span></div>
         <div class="book-info">
           <h3>ITエンジニア働き方超大全</h3>
           <div class="book-meta">日経BP</div>
-          <p>会社員・フリーランス・起業——多様化するITエンジニアの働き方とキャリアの選択肢を、網羅的に解説。</p>
-          <a class="more" href="books.html">詳しく見る <span class="arrow">→</span></a>
+          <p>会社員、フリーランス、起業——多様化するITエンジニアの働き方とキャリアの選択肢を網羅的に整理。「自分はどう働きたいのか」を考えるための、判断材料を詰め込んだ一冊です。</p>
+          <div class="hero-actions">
+            <a class="btn btn--ghost" href="https://www.amazon.co.jp/s?k=ITエンジニア働き方超大全+小野歩" target="_blank" rel="noopener">Amazonで探す <span class="arrow">→</span></a>
+          </div>
         </div>
       </article>
+
     </div>
   </div>
 </section>
 
 <!-- ===== Activities ===== -->
-<section class="section">
+<section class="section" id="media">
   <div class="wrap">
     <div class="section-head reveal">
       <p class="eyebrow">Activities</p>
@@ -134,20 +237,104 @@
         <span class="icon">✍️</span>
         <h3>執筆・発信</h3>
         <p>著書のほか、noteやXでキャリア・経営・AI時代の働き方について発信。現場の声を言葉に変えて届けます。</p>
-        <a class="more" href="media.html">発信を見る <span class="arrow">→</span></a>
       </article>
       <article class="card reveal">
         <span class="icon">🤝</span>
         <h3>コミュニティ tecHub</h3>
         <p>毎月3,000人規模が参加するIT勉強会・交流会「tecHub」を秋葉原を拠点に主宰。学びと出会いの場を運営しています。</p>
-        <a class="more" href="media.html">活動を見る <span class="arrow">→</span></a>
       </article>
       <article class="card reveal">
         <span class="icon">🚀</span>
         <h3>経営・人材育成</h3>
         <p>株式会社テックワークス代表として、システム開発・ITスクール運営・キャリア支援を通じてプロフェッショナル人材を輩出。</p>
-        <a class="more" href="profile.html">会社・経歴を見る <span class="arrow">→</span></a>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Community : tecHub ===== -->
+<section class="section section--alt">
+  <div class="wrap split">
+    <div class="reveal">
+      <p class="eyebrow">Community</p>
+      <h2 style="font-size:clamp(1.5rem,3.2vw,2.1rem);">IT勉強会・交流会<br />「tecHub」主宰</h2>
+      <p style="color:var(--muted);">秋葉原を拠点に、エンジニアやIT業界に関心のある人が集う勉強会・交流会「tecHub」を主宰。毎月3,000人規模が参加し、学び・出会い・キャリアのきっかけが生まれる場になっています。</p>
+      <p style="margin-top:1.2rem;"><a class="btn btn--ghost" href="https://note.com/tecworks/n/ne110a83f1be5" target="_blank" rel="noopener">開催レポートを読む <span class="arrow">→</span></a></p>
+    </div>
+    <div class="reveal grid grid--2" style="gap:16px;">
+      <div class="card" style="text-align:center;"><div class="num" style="font-family:var(--serif); font-size:2.4rem; color:var(--navy);">3,000<span style="font-size:.4em; color:var(--brass);">人/月</span></div><p style="margin:.4rem 0 0; font-size:.86rem;">参加者規模</p></div>
+      <div class="card" style="text-align:center;"><div class="num" style="font-family:var(--serif); font-size:2.4rem; color:var(--navy);">秋葉原</div><p style="margin:.4rem 0 0; font-size:.86rem;">活動拠点</p></div>
+      <div class="card" style="text-align:center;"><div class="num" style="font-family:var(--serif); font-size:2.4rem; color:var(--navy);">1,000<span style="font-size:.4em; color:var(--brass);">人＋</span></div><p style="margin:.4rem 0 0; font-size:.86rem;">キャリア相談</p></div>
+      <div class="card" style="text-align:center;"><div class="num" style="font-family:var(--serif); font-size:2.4rem; color:var(--navy);">定期</div><p style="margin:.4rem 0 0; font-size:.86rem;">開催ペース</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Media list ===== -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Media &amp; News</p>
+      <h2>メディア掲載・お知らせ</h2>
+      <p>インタビュー、対談、リリース、note記事など。</p>
+    </div>
+    <ul class="media-list reveal">
+      <li class="media-item">
+        <span class="media-date">2026.04.27</span>
+        <span><span class="media-cat">note</span><div class="media-title">新刊『IT仕事図鑑』のご報告と、この本が生まれた理由</div></span>
+        <a class="go" href="https://note.com/mu0401/n/nf498e6607290" target="_blank" rel="noopener" aria-label="記事を開く">↗</a>
+      </li>
+      <li class="media-item">
+        <span class="media-date">2026.04.09</span>
+        <span><span class="media-cat">Interview</span><div class="media-title">AI時代のITキャリア形成について、株式会社テックワークス代表の小野歩さんに伺いました</div></span>
+        <a class="go" href="https://note.com/impress_group/n/nb5178d21cd63" target="_blank" rel="noopener" aria-label="記事を開く">↗</a>
+      </li>
+      <li class="media-item">
+        <span class="media-date">2026.04.09</span>
+        <span><span class="media-cat">対談</span><div class="media-title">なぜ今、IT業界の職種を解説する書籍を刊行したのか？──『IT仕事図鑑』制作秘話</div></span>
+        <a class="go" href="https://note-pub.impress.co.jp/n/n7691794fc665" target="_blank" rel="noopener" aria-label="記事を開く">↗</a>
+      </li>
+      <li class="media-item">
+        <span class="media-date">2026.04.08</span>
+        <span><span class="media-cat">Release</span><div class="media-title">三冊目の著書『IT仕事図鑑 はたらく現場と人がイラストでぜんぶわかる！』を出版</div></span>
+        <a class="go" href="https://amzn.asia/d/0hCX4JyD" target="_blank" rel="noopener" aria-label="記事を開く">↗</a>
+      </li>
+      <li class="media-item">
+        <span class="media-date">2026.02.21</span>
+        <span><span class="media-cat">Event</span><div class="media-title">2/21 tecHub（IT交流会）を秋葉原で開催しました！</div></span>
+        <a class="go" href="https://note.com/tecworks/n/ne110a83f1be5" target="_blank" rel="noopener" aria-label="記事を開く">↗</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== Channels ===== -->
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Follow</p>
+      <h2>発信チャンネル</h2>
+      <p>キャリア・経営・AI時代の働き方について、日々発信しています。</p>
+    </div>
+    <div class="grid grid--3">
+      <a class="card reveal" href="https://note.com/mu0401" target="_blank" rel="noopener">
+        <span class="icon">📝</span>
+        <h3>note</h3>
+        <p>考えていること、著書の背景、キャリアのヒントを綴っています。</p>
+        <span class="more">note.com/mu0401 <span class="arrow">→</span></span>
+      </a>
+      <a class="card reveal" href="https://x.com/ayumu_ono123" target="_blank" rel="noopener">
+        <span class="icon">𝕏</span>
+        <h3>X（旧Twitter）</h3>
+        <p>日々の気づきや業界の話題をタイムリーに発信。</p>
+        <span class="more">@ayumu_ono123 <span class="arrow">→</span></span>
+      </a>
+      <a class="card reveal" href="https://www.linkedin.com/in/%E6%AD%A9-%E5%B0%8F%E9%87%8E-1625aa2a6/" target="_blank" rel="noopener">
+        <span class="icon">💼</span>
+        <h3>LinkedIn</h3>
+        <p>経営・事業・キャリアに関するプロフェッショナルな発信。</p>
+        <span class="more">プロフィールを見る <span class="arrow">→</span></span>
+      </a>
     </div>
   </div>
 </section>
@@ -160,31 +347,76 @@
   </div>
 </section>
 
-<!-- ===== Media (latest) ===== -->
-<section class="section section--alt">
+<!-- ===== Contact ===== -->
+<section class="section" id="contact">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow">Media &amp; News</p>
-      <h2>最近のメディア・お知らせ</h2>
+      <p class="eyebrow">Contact</p>
+      <h2>お問い合わせ</h2>
+      <p>講演・取材・執筆などのご依頼・ご相談を承っています。下記フォームよりお気軽にお問い合わせください。</p>
     </div>
-    <ul class="media-list reveal">
-      <li class="media-item">
-        <span class="media-date">2026.04.27</span>
-        <span><span class="media-cat">note</span><div class="media-title">新刊『IT仕事図鑑』のご報告と、この本が生まれた理由</div></span>
-        <a class="go" href="https://note.com/mu0401/n/nf498e6607290" target="_blank" rel="noopener" aria-label="記事を開く">↗</a>
-      </li>
-      <li class="media-item">
-        <span class="media-date">2026.04.09</span>
-        <span><span class="media-cat">Interview</span><div class="media-title">AI時代のITキャリア形成について、代表の小野歩に伺いました</div></span>
-        <a class="go" href="https://note.com/impress_group/n/nb5178d21cd63" target="_blank" rel="noopener" aria-label="記事を開く">↗</a>
-      </li>
-      <li class="media-item">
-        <span class="media-date">2026.04.08</span>
-        <span><span class="media-cat">Release</span><div class="media-title">三冊目の著書『IT仕事図鑑』を出版</div></span>
-        <a class="go" href="https://amzn.asia/d/0hCX4JyD" target="_blank" rel="noopener" aria-label="記事を開く">↗</a>
-      </li>
-    </ul>
-    <p style="margin-top:2rem;" class="reveal"><a class="btn btn--ghost" href="media.html">すべて見る <span class="arrow">→</span></a></p>
+    <div class="contact-grid">
+      <!-- Left: what you can request -->
+      <div class="reveal">
+        <p class="eyebrow">Request</p>
+        <h3 style="font-size:clamp(1.3rem,3vw,1.7rem); color:var(--navy);">ご依頼いただけること</h3>
+        <ul class="req-list">
+          <li><span class="ck">✓</span><span><b>講演・セミナー登壇</b>／ ITキャリア、エンジニア育成、AI時代の働き方、起業 など</span></li>
+          <li><span class="ck">✓</span><span><b>執筆・寄稿</b>／ 書籍、連載、Webメディアへの寄稿</span></li>
+          <li><span class="ck">✓</span><span><b>取材・インタビュー</b>／ メディア取材、コメント提供</span></li>
+          <li><span class="ck">✓</span><span><b>対談・パネル</b>／ イベント・コンテンツでの対談、パネルディスカッション</span></li>
+          <li><span class="ck">✓</span><span><b>その他</b>／ 協業・コミュニティ連携などのご相談</span></li>
+        </ul>
+
+        <div class="card" style="margin-top:28px;">
+          <h3 style="font-size:1rem;">SNSからのご連絡も歓迎です</h3>
+          <div class="social" style="margin-top:12px;">
+            <a href="https://x.com/ayumu_ono123" target="_blank" rel="noopener" aria-label="X" style="border-color:var(--line-2); color:var(--navy);">X</a>
+            <a href="https://note.com/mu0401" target="_blank" rel="noopener" aria-label="note" style="border-color:var(--line-2); color:var(--navy);">note</a>
+            <a href="https://www.linkedin.com/in/%E6%AD%A9-%E5%B0%8F%E9%87%8E-1625aa2a6/" target="_blank" rel="noopener" aria-label="LinkedIn" style="border-color:var(--line-2); color:var(--navy);">in</a>
+          </div>
+          <p style="font-size:.86rem; color:var(--muted); margin:14px 0 0;">運営：株式会社テックワークス（東京都千代田区外神田4-14-1 秋葉原UDX 4F）</p>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="reveal">
+        <form class="form" id="contact-form" novalidate>
+          <div class="field">
+            <label for="name">お名前 <span class="req">*</span></label>
+            <input type="text" id="name" name="name" placeholder="山田 太郎" required />
+          </div>
+          <div class="field">
+            <label for="company">会社名・団体名</label>
+            <input type="text" id="company" name="company" placeholder="株式会社〇〇" />
+          </div>
+          <div class="field">
+            <label for="email">メールアドレス <span class="req">*</span></label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+          </div>
+          <div class="field">
+            <label for="type">ご依頼の種類 <span class="req">*</span></label>
+            <select id="type" name="type" required>
+              <option value="">選択してください</option>
+              <option>講演・セミナー登壇</option>
+              <option>執筆・寄稿</option>
+              <option>取材・インタビュー</option>
+              <option>対談・パネル</option>
+              <option>その他のご相談</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">お問い合わせ内容 <span class="req">*</span></label>
+            <textarea id="message" name="message" placeholder="ご依頼の概要、希望時期、開催形式などをご記入ください。" required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary" style="width:100%; justify-content:center;">送信する <span class="arrow">→</span></button>
+          <p class="form-note">※ これは提案用プロトタイプです。送信機能は接続されていません（公開時にフォーム送信先の設定が必要です）。</p>
+          <div id="form-done" hidden style="margin-top:16px; padding:14px 16px; border-radius:10px; background:#eaf3ea; color:#1f6b3a; font-size:.92rem;">
+            ✓ 送信ありがとうございます（プロトタイプのため実際には送信されていません）。
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -194,7 +426,7 @@
     <h2>講演・取材・執筆のご依頼</h2>
     <p>登壇、インタビュー、対談、寄稿などのご相談を承っています。お気軽にお問い合わせください。</p>
     <div class="hero-actions">
-      <a class="btn btn--light" href="contact.html">お問い合わせフォーム <span class="arrow">→</span></a>
+      <a class="btn btn--light" href="#contact">お問い合わせフォーム <span class="arrow">→</span></a>
       <a class="btn btn--on-navy" href="https://note.com/mu0401" target="_blank" rel="noopener">note を読む</a>
     </div>
   </div>
@@ -218,11 +450,11 @@
       <div class="footer-col">
         <h4>Menu</h4>
         <ul>
-          <li><a href="index.html">ホーム</a></li>
-          <li><a href="profile.html">プロフィール</a></li>
-          <li><a href="books.html">著書</a></li>
-          <li><a href="media.html">メディア・活動</a></li>
-          <li><a href="contact.html">お問い合わせ</a></li>
+          <li><a href="#home">ホーム</a></li>
+          <li><a href="#profile">プロフィール</a></li>
+          <li><a href="#books">著書</a></li>
+          <li><a href="#media">メディア・活動</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
         </ul>
       </div>
       <div class="footer-col">

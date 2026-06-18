@@ -50,6 +50,27 @@
     reveals.forEach(function (el) { el.classList.add("in"); });
   }
 
+  /* --- 現在地ナビハイライト（1ページ構成のスクロール連動） --- */
+  var spyTargets = [];
+  Array.prototype.forEach.call(document.querySelectorAll('.nav-links a[href^="#"]'), function (a) {
+    var id = a.getAttribute("href");
+    if (id.length < 2) { return; }
+    var el = document.querySelector(id);
+    if (el) { spyTargets.push({ link: a, el: el }); }
+  });
+  if (spyTargets.length) {
+    var spy = function () {
+      var current = spyTargets[0];
+      spyTargets.forEach(function (t) {
+        if (t.el.getBoundingClientRect().top <= 120) { current = t; }
+      });
+      spyTargets.forEach(function (t) { t.link.classList.remove("is-active"); });
+      current.link.classList.add("is-active");
+    };
+    spy();
+    window.addEventListener("scroll", spy, { passive: true });
+  }
+
   /* --- フッターの年号 --- */
   var yr = document.querySelector("[data-year]");
   if (yr) { yr.textContent = new Date().getFullYear(); }
