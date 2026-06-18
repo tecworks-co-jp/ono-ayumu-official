@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow, noarchive" />
+<title>お問い合わせ｜小野歩 オフィシャルサイト</title>
+<meta name="description" content="小野歩へのお問い合わせ。講演・セミナー登壇、執筆・寄稿、取材・インタビュー、対談などのご依頼を承っています。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <nav class="nav" aria-label="メインナビゲーション">
+      <a class="brand" href="index.html"><span class="ja">小野 歩</span><span class="en">Ayumu Ono</span></a>
+      <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="profile.html">プロフィール</a></li>
+        <li><a href="books.html">著書</a></li>
+        <li><a href="media.html">メディア・活動</a></li>
+        <li class="nav-cta"><a class="btn btn--primary" href="contact.html" aria-current="page">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index.html">ホーム</a> ／ お問い合わせ</p>
+    <p class="eyebrow" style="margin-top:1rem;">Contact</p>
+    <h1>お問い合わせ</h1>
+    <p>講演・取材・執筆などのご依頼・ご相談を承っています。下記フォームよりお気軽にお問い合わせください。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap contact-grid">
+    <!-- Left: what you can request -->
+    <div class="reveal">
+      <p class="eyebrow">Request</p>
+      <h2 style="font-size:clamp(1.4rem,3vw,1.9rem);">ご依頼いただけること</h2>
+      <ul class="req-list">
+        <li><span class="ck">✓</span><span><b>講演・セミナー登壇</b>／ ITキャリア、エンジニア育成、AI時代の働き方、起業 など</span></li>
+        <li><span class="ck">✓</span><span><b>執筆・寄稿</b>／ 書籍、連載、Webメディアへの寄稿</span></li>
+        <li><span class="ck">✓</span><span><b>取材・インタビュー</b>／ メディア取材、コメント提供</span></li>
+        <li><span class="ck">✓</span><span><b>対談・パネル</b>／ イベント・コンテンツでの対談、パネルディスカッション</span></li>
+        <li><span class="ck">✓</span><span><b>その他</b>／ 協業・コミュニティ連携などのご相談</span></li>
+      </ul>
+
+      <div class="card" style="margin-top:28px;">
+        <h3 style="font-size:1rem;">SNSからのご連絡も歓迎です</h3>
+        <div class="social" style="margin-top:12px;">
+          <a href="https://x.com/ayumu_ono123" target="_blank" rel="noopener" aria-label="X" style="border-color:var(--line-2); color:var(--navy);">X</a>
+          <a href="https://note.com/mu0401" target="_blank" rel="noopener" aria-label="note" style="border-color:var(--line-2); color:var(--navy);">note</a>
+          <a href="https://www.linkedin.com/in/%E6%AD%A9-%E5%B0%8F%E9%87%8E-1625aa2a6/" target="_blank" rel="noopener" aria-label="LinkedIn" style="border-color:var(--line-2); color:var(--navy);">in</a>
+        </div>
+        <p style="font-size:.86rem; color:var(--muted); margin:14px 0 0;">運営：株式会社テックワークス（東京都千代田区外神田4-14-1 秋葉原UDX 4F）</p>
+      </div>
+    </div>
+
+    <!-- Right: form -->
+    <div class="reveal">
+      <form class="form" id="contact-form" novalidate>
+        <div class="field">
+          <label for="name">お名前 <span class="req">*</span></label>
+          <input type="text" id="name" name="name" placeholder="山田 太郎" required />
+        </div>
+        <div class="field">
+          <label for="company">会社名・団体名</label>
+          <input type="text" id="company" name="company" placeholder="株式会社〇〇" />
+        </div>
+        <div class="field">
+          <label for="email">メールアドレス <span class="req">*</span></label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required />
+        </div>
+        <div class="field">
+          <label for="type">ご依頼の種類 <span class="req">*</span></label>
+          <select id="type" name="type" required>
+            <option value="">選択してください</option>
+            <option>講演・セミナー登壇</option>
+            <option>執筆・寄稿</option>
+            <option>取材・インタビュー</option>
+            <option>対談・パネル</option>
+            <option>その他のご相談</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">お問い合わせ内容 <span class="req">*</span></label>
+          <textarea id="message" name="message" placeholder="ご依頼の概要、希望時期、開催形式などをご記入ください。" required></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary" style="width:100%; justify-content:center;">送信する <span class="arrow">→</span></button>
+        <p class="form-note">※ これは提案用プロトタイプです。送信機能は接続されていません（公開時にフォーム送信先の設定が必要です）。</p>
+        <div id="form-done" hidden style="margin-top:16px; padding:14px 16px; border-radius:10px; background:#eaf3ea; color:#1f6b3a; font-size:.92rem;">
+          ✓ 送信ありがとうございます（プロトタイプのため実際には送信されていません）。
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="ja">小野 歩</div>
+        <div class="en">Ayumu Ono — Official Site</div>
+        <p>ITエンジニアの価値を最大化する。著者・経営者・コミュニティ主宰として、IT業界で働く人のキャリアと可能性を広げる活動を行っています。</p>
+        <div class="social" style="margin-top:18px;">
+          <a href="https://x.com/ayumu_ono123" target="_blank" rel="noopener" aria-label="X">X</a>
+          <a href="https://note.com/mu0401" target="_blank" rel="noopener" aria-label="note">note</a>
+          <a href="https://www.linkedin.com/in/%E6%AD%A9-%E5%B0%8F%E9%87%8E-1625aa2a6/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="profile.html">プロフィール</a></li>
+          <li><a href="books.html">著書</a></li>
+          <li><a href="media.html">メディア・活動</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Link</h4>
+        <ul>
+          <li><a href="https://tecworks.co.jp" target="_blank" rel="noopener">株式会社テックワークス</a></li>
+          <li><a href="https://note.com/tecworks" target="_blank" rel="noopener">テックワークス note</a></li>
+          <li><a href="https://amzn.asia/d/0hCX4JyD" target="_blank" rel="noopener">著書（Amazon）</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Ayumu Ono. All rights reserved.</span>
+      <span>株式会社テックワークス 代表取締役</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>
