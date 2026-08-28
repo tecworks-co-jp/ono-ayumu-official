@@ -20,7 +20,7 @@
     font-family:"Noto Sans JP",system-ui,-apple-system,"Hiragino Kaku Gothic ProN",sans-serif;
     line-height:1.9; -webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:1000px; margin:0 auto; padding:0 24px;}
+  .wrap{max-width:1160px; margin:0 auto; padding:0 24px;}
   header.top{background:var(--navy); color:#fff; padding:56px 0 48px;}
   header.top .eyebrow{
     font-size:.75rem; letter-spacing:.22em; text-transform:uppercase;
@@ -33,7 +33,7 @@
   header.top p{margin:0; color:#c9d4e2; font-size:.95rem; max-width:62ch;}
   main{padding:56px 0 72px;}
   .lead{margin:0 0 36px; color:var(--muted); font-size:.95rem;}
-  .cards{display:grid; gap:24px; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
+  .cards{display:grid; gap:24px; grid-template-columns:repeat(auto-fit,minmax(320px,1fr));}
   .card{
     background:#fff; border:1px solid var(--line); border-radius:14px;
     padding:28px; display:flex; flex-direction:column;
@@ -44,7 +44,7 @@
     font-family:"Noto Serif JP",serif; font-size:.8rem; letter-spacing:.18em;
     color:var(--gold); margin:0 0 10px;
   }
-  .card h2{font-family:"Noto Serif JP",serif; font-size:1.3rem; margin:0 0 6px; font-weight:600;}
+  .card h2{font-family:"Noto Serif JP",serif; font-size:1.22rem; margin:0 0 6px; font-weight:600;}
   .card .sub{margin:0 0 16px; font-size:.85rem; color:var(--muted);}
   .card p.desc{margin:0 0 20px; font-size:.92rem; color:var(--muted);}
   .tags{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 22px;}
@@ -67,6 +67,13 @@
   .thumb--s2 .body i:nth-child(1){background:#d4552d;}
   .btn.btn--s2{background:#123b32;}
   .btn.btn--s2:hover{background:#1c5748;}
+  .thumb--s3{border-color:#243040;}
+  .thumb--s3 .bar{background:#0a0e13;}
+  .thumb--s3 .body{background:linear-gradient(180deg,#141c26 0%,#0e141c 100%);}
+  .thumb--s3 .body i{background:#2b3a4d;}
+  .thumb--s3 .body i:nth-child(1){background:linear-gradient(90deg,#38bdf8,#a78bfa);}
+  .btn.btn--s3{background:#141c26;}
+  .btn.btn--s3:hover{background:#243040;}
   .thumb.is-empty{
     background:#f2eee7; align-items:center; justify-content:center;
     color:#a89b86; font-size:.85rem; letter-spacing:.1em;
@@ -101,7 +108,7 @@
 
 <main>
   <div class="wrap">
-    <p class="lead">比較したい案を選んでご覧ください。フィードバックは案ごとにいただけると反映しやすいです。</p>
+    <p class="lead">3案をご用意しました。比較したい案を選んでご覧ください。フィードバックは案ごとにいただけると反映しやすいです。</p>
 
     <div class="cards">
 
@@ -123,6 +130,17 @@
         <p class="desc">「講演を依頼したい」「協業したい」「会って話したい」と思ってもらうことを最優先にした構成。依頼メニュー・講演テーマ・依頼者の声・ご依頼の流れ・FAQ を置き、各所から問い合わせへ導線を通しています。</p>
         <div class="tags"><span>依頼導線</span><span>講演テーマ</span><span>協業</span><span>FAQ・流れ</span></div>
         <a class="btn btn--s2" href="site2/">案2を見る →</a>
+      </article>
+
+
+      <article class="card is-live">
+        <p class="no">SITE 3</p>
+        <h2>案3：ダーク・メディア型<span class="status live">公開中</span></h2>
+        <p class="sub">ダーク基調 × スカイ／バイオレット／ゴシック</p>
+        <div class="thumb thumb--s3"><div class="bar"></div><div class="body"><i></i><i></i><i></i></div></div>
+        <p class="desc">出演・掲載・発信を主役にしたハブ型。ダークで先進的なトーンにまとめ、Now／Media／Books／Talk／About を英字ナビで回遊させます。動画出演や受賞など「実績の量」が一番映える構成です。</p>
+        <div class="tags"><span>ダークUI</span><span>メディア出演</span><span>発信ハブ</span><span>モダン</span></div>
+        <a class="btn btn--s3" href="site3/">案3を見る →</a>
       </article>
 
     </div>
