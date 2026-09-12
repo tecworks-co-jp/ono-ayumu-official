@@ -239,9 +239,10 @@ p{margin:0 0 1.1em;}
 .book-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:24px;}
 .book{background:#fff; border-radius:var(--radius); padding:24px; box-shadow:var(--shadow); display:flex; gap:18px;}
 .book-cover{
-  flex:0 0 84px; height:118px; border-radius:6px; background:linear-gradient(160deg,var(--green),var(--green-2));
-  color:#fff; font-size:.6rem; padding:10px 8px; line-height:1.5; box-shadow:0 6px 16px rgba(18,59,50,.22);
+  flex:0 0 84px; align-self:flex-start; border-radius:6px; overflow:hidden;
+  box-shadow:0 6px 16px rgba(18,59,50,.22);
 }
+.book-cover img{width:100%; height:auto; display:block;}
 .book h3{font-size:.98rem; margin:0 0 6px;}
 .book .pub{font-size:.76rem; color:var(--muted); margin:0 0 8px;}
 .book p{font-size:.84rem; color:var(--muted); margin:0 0 10px;}
