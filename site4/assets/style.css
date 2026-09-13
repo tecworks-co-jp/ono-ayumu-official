@@ -1,0 +1,135 @@
+/* =========================================================
+   小野歩 ウェブサイト 案4（個人サイト・読み物型）
+   飾らない・1カラム・カードや演出を使わない
+   ========================================================= */
+
+:root{
+  --ink:#222;
+  --muted:#6b6b6b;
+  --rule:#d9d9d9;
+  --paper:#fff;
+  --link:#1d4e89;
+}
+
+*{box-sizing:border-box;}
+html{scroll-padding-top:20px;}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",YuGothic,"Noto Sans JP",Meiryo,sans-serif;
+  font-size:15px; line-height:1.95;
+}
+img{max-width:100%; height:auto; display:block;}
+a{color:var(--link); text-decoration:underline; text-underline-offset:3px;}
+a:hover{color:#0e2f57;}
+p{margin:0 0 1.3em;}
+.wrap{max-width:720px; margin:0 auto; padding:0 20px;}
+
+h2{
+  font-size:1.15rem; font-weight:600; margin:0 0 22px; padding-bottom:8px;
+  border-bottom:1px solid var(--ink); line-height:1.5;
+}
+h3{font-size:1rem; font-weight:600; margin:32px 0 10px; line-height:1.6;}
+
+/* ---------- ヘッダー ---------- */
+.site-header{padding:36px 0 28px;}
+.site-header .wrap{display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:10px 24px;}
+.site-name{margin:0; font-size:1.3rem; font-weight:600; letter-spacing:.08em;}
+.site-name a{color:inherit; text-decoration:none;}
+.site-name small{font-size:.75rem; font-weight:400; color:var(--muted); margin-left:10px; letter-spacing:.05em;}
+.site-nav{display:flex; flex-wrap:wrap; gap:4px 18px; font-size:.86rem;}
+.site-nav a{color:var(--ink); text-decoration:none; padding:2px 0;}
+.site-nav a:hover{text-decoration:underline;}
+
+/* ---------- 本文 ---------- */
+main{padding:8px 20px 40px;}
+section{margin:0 0 72px;}
+
+.intro{display:flex; gap:32px; align-items:flex-start; margin-bottom:80px;}
+.intro-text{flex:1 1 auto;}
+.intro-text p:first-child{font-size:1.05rem; font-weight:600; margin-bottom:1.1em;}
+.intro-photo{flex:0 0 200px; margin:6px 0 0;}
+.intro-photo img{aspect-ratio:4/5; object-fit:cover; object-position:center top;}
+figcaption{font-size:.78rem; color:var(--muted); margin-top:8px; line-height:1.6;}
+
+.photo-wide{margin:0 0 28px;}
+.photo-wide img{width:100%; aspect-ratio:16/9; object-fit:cover; object-position:center 30%;}
+
+.note{font-size:.8rem; color:var(--muted);}
+
+/* お知らせ */
+.news{margin:0 0 12px;}
+.news dt{float:left; clear:left; width:7em; color:var(--muted); font-size:.9rem; padding-top:2px;}
+.news dd{margin:0 0 12px 7em;}
+.news::after{content:""; display:block; clear:both;}
+
+/* 経歴 */
+.history{width:100%; border-collapse:collapse; font-size:.93rem; margin:0 0 12px;}
+.history th,.history td{padding:9px 0; border-bottom:1px solid var(--rule); vertical-align:top; text-align:left;}
+.history th{width:8em; font-weight:400; color:var(--muted); white-space:nowrap; padding-right:16px;}
+
+/* 著書 */
+.books{list-style:none; margin:0; padding:0;}
+.books li{display:flex; gap:24px; padding:22px 0; border-bottom:1px solid var(--rule);}
+.books li:first-child{padding-top:0;}
+.books .cover{flex:0 0 96px;}
+.books .cover img{border:1px solid var(--rule);}
+.books h3{margin:0 0 2px; font-size:1rem;}
+.books .pub{font-size:.82rem; color:var(--muted); margin:0 0 8px;}
+.books p{font-size:.93rem; margin:0;}
+
+/* 汎用リスト */
+.plain-list{margin:0 0 1.3em; padding-left:1.3em;}
+.plain-list li{margin-bottom:6px;}
+
+/* ご依頼 */
+.request{margin:0 0 8px;}
+.request dt{font-weight:600; margin:18px 0 2px;}
+.request dt:first-child{margin-top:0;}
+.request dd{margin:0; font-size:.95rem;}
+
+/* フォーム */
+.form{max-width:520px; margin-top:24px;}
+.field{margin:0 0 18px;}
+label{display:block; font-size:.88rem; margin-bottom:5px;}
+input,textarea{
+  width:100%; padding:9px 11px; border:1px solid #bbb; border-radius:3px;
+  font-family:inherit; font-size:.95rem; line-height:1.6; color:var(--ink); background:#fff;
+}
+input:focus,textarea:focus{outline:2px solid var(--link); outline-offset:1px; border-color:var(--link);}
+textarea{resize:vertical;}
+.help{display:block; font-size:.8rem; color:var(--muted); margin-top:6px; line-height:1.7;}
+button{
+  font-family:inherit; font-size:.95rem; padding:10px 28px; border:1px solid var(--ink);
+  border-radius:3px; background:var(--ink); color:#fff; cursor:pointer;
+}
+button:hover{background:#444; border-color:#444;}
+.done{font-size:.9rem; color:#1f6b46;}
+
+/* ---------- フッター ---------- */
+.site-footer{border-top:1px solid var(--rule); padding:28px 0 40px; font-size:.84rem; color:var(--muted);}
+.site-footer .links{list-style:none; margin:0 0 14px; padding:0; display:flex; flex-wrap:wrap; gap:6px 20px;}
+.site-footer .copy{margin:0;}
+
+/* ---------- 案切り替え（提案用） ---------- */
+.proposal-switch{
+  position:fixed; right:14px; bottom:14px; z-index:10;
+  display:flex; align-items:center; gap:10px;
+  background:rgba(34,34,34,.9); color:#fff; border-radius:999px;
+  padding:7px 14px; font-size:.76rem;
+}
+.proposal-switch b{font-weight:600;}
+.proposal-switch a{color:#fff;}
+
+/* ---------- レスポンシブ ---------- */
+@media (max-width:640px){
+  body{font-size:14.5px;}
+  .site-header{padding:26px 0 20px;}
+  .intro{flex-direction:column-reverse; gap:22px;}
+  .intro-photo{flex:0 0 auto; width:160px;}
+  .news dt{float:none; width:auto; padding:0;}
+  .news dd{margin:0 0 14px;}
+  .books li{gap:16px;}
+  .books .cover{flex-basis:76px;}
+  .history th{width:6.5em; white-space:normal;}
+  section{margin-bottom:56px;}
+}
