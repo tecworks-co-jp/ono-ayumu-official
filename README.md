@@ -24,7 +24,10 @@
  ├─ site4/        案4：飾らない個人サイト（白 × 墨／システムフォント／1カラム）
  │   ├─ index.html
  │   └─ assets/   style.css / main.js
- └─ site5/        案5：著者オフィシャル型（紺 × 白／明朝見出し／全画面ヒーロー・3カラムカード）
+ ├─ site5/        案5：著者オフィシャル型（紺 × 白／明朝見出し／全画面ヒーロー・3カラムカード）
+ │   ├─ index.html
+ │   └─ assets/   style.css / main.js / img/
+ └─ site6/        案6：案2をベースにレビュー反映（案2の複製・制作用）
      ├─ index.html
      └─ assets/   style.css / main.js / img/
 ```
@@ -37,9 +40,10 @@
 | https://tecworks-co-jp.github.io/ono-ayumu-official/site3 | 案3 |
 | https://tecworks-co-jp.github.io/ono-ayumu-official/site4 | 案4 |
 | https://tecworks-co-jp.github.io/ono-ayumu-official/site5 | 案5 |
+| https://tecworks-co-jp.github.io/ono-ayumu-official/site6 | 案6（案2ベース・レビュー反映用） |
 
 - 各案は **CSS/JSを共有せず自己完結** させています（案ごとにデザインを自由に変えられるようにするため）。
-- 各案の右下（案5はPAGE TOPボタンと重なるため左下）に「案一覧へ」戻るピルを表示しています。**公開時には削除**してください（各案の `index.html` 内の `proposal-switch` ブロック。案2・案4・案5は `assets/style.css` の `.proposal-switch` も）。
+- 各案の右下（案5はPAGE TOPボタンと重なるため左下）に「案一覧へ」戻るピルを表示しています。**公開時には削除**してください（各案の `index.html` 内の `proposal-switch` ブロック。案2・案4・案5・案6は `assets/style.css` の `.proposal-switch` も）。
 - 案を追加するときは `siteN/` ディレクトリを作り、ルートの `index.html` にカードを1枚追加します。
 
 ---
