@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-label="システム開発事業">
+<rect width="600" height="400" fill="#eceae4"/>
+<circle cx="300" cy="200" r="118" fill="#e3e0d8"/>
+<text x="36" y="52" font-family="'Noto Serif JP','Hiragino Mincho ProN',serif" font-size="22" letter-spacing="3" fill="#b8a07a">01</text>
+<g fill="none" stroke="#1a2d4f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="200" y="130" width="200" height="140" rx="6"/>
+<line x1="200" y1="158" x2="400" y2="158"/>
+<circle cx="216" cy="144" r="3" fill="#1a2d4f" stroke="none"/><circle cx="230" cy="144" r="3" fill="#1a2d4f" stroke="none"/><circle cx="244" cy="144" r="3" fill="#1a2d4f" stroke="none"/>
+<polyline points="262,190 240,214 262,238"/>
+<polyline points="338,190 360,214 338,238"/>
+<line x1="312" y1="184" x2="290" y2="246" stroke="#b8a07a"/>
+<line x1="270" y1="292" x2="330" y2="292"/>
+<line x1="300" y1="270" x2="300" y2="292"/>
+</g>
+</svg>
