@@ -1,6 +1,6 @@
 /* =====================================================
    小野歩 OFFICIAL SITE 案7（Figma Make版の再現）
-   紺 #0f1c32 / #1a2d4f × 金茶 #b8a07a、明朝見出し・ゴシック本文
+   紺 #0f1c32 / #1a2d4f × 金茶 #b8a07a、明朝見出し・ゴシック本文（ヒラギノ優先）
    ===================================================== */
 
 :root{
@@ -13,8 +13,10 @@
   --gray:#f7f7f5;
   --line:#e0e0e0;
   --line-soft:#f0f0f0;
-  --sans:"Noto Sans JP",sans-serif;
-  --serif:"Noto Serif JP",serif;
+  /* Figma側の表示（Macのシステムフォント＝ヒラギノ）に合わせ、ヒラギノ優先。
+     ヒラギノが無い環境（Windows等）では游書体→Noto（Webフォント）の順に代替 */
+  --sans:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",sans-serif;
+  --serif:"Hiragino Mincho ProN","Hiragino Mincho Pro","Yu Mincho","Noto Serif JP",serif;
   --ease:cubic-bezier(.4,0,.2,1);
 }
 
