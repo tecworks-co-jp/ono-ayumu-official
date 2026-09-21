@@ -30,7 +30,10 @@
  ├─ site6/        案6：案2をベースにレビュー反映（案2の複製・制作用）
  │   ├─ index.html
  │   └─ assets/   style.css / main.js / img/
- └─ site7/        案7：Figma Make版の再現（紺 × 金茶／明朝見出し／依頼導線重視）
+ ├─ site7/        案7：Figma Make版の再現（紺 × 金茶／明朝見出し／依頼導線重視）
+ │   ├─ index.html
+ │   └─ assets/   style.css / main.js / img/
+ └─ site8/        案8：Figma Makeエクスポート（デザイン変更リクエスト.zip）の再現（案7と同構成・Noto書体）
      ├─ index.html
      └─ assets/   style.css / main.js / img/
 ```
@@ -45,9 +48,10 @@
 | https://tecworks-co-jp.github.io/ono-ayumu-official/site5 | 案5 |
 | https://tecworks-co-jp.github.io/ono-ayumu-official/site6 | 案6（案2ベース・レビュー反映用） |
 | https://tecworks-co-jp.github.io/ono-ayumu-official/site7 | 案7（Figma Make版の再現） |
+| https://tecworks-co-jp.github.io/ono-ayumu-official/site8 | 案8（Figma Makeエクスポートの再現・案7と同構成） |
 
 - 各案は **CSS/JSを共有せず自己完結** させています（案ごとにデザインを自由に変えられるようにするため）。
-- 各案の右下（案5はPAGE TOPボタンと重なるため左下）に「案一覧へ」戻るピルを表示しています。**公開時には削除**してください（各案の `index.html` 内の `proposal-switch` ブロック。案2・案4・案5・案6・案7は `assets/style.css` の `.proposal-switch` も）。
+- 各案の右下（案5はPAGE TOPボタンと重なるため左下）に「案一覧へ」戻るピルを表示しています。**公開時には削除**してください（各案の `index.html` 内の `proposal-switch` ブロック。案2・案4・案5・案6・案7・案8は `assets/style.css` の `.proposal-switch` も）。
 - 案を追加するときは `siteN/` ディレクトリを作り、ルートの `index.html` にカードを1枚追加します。
 
 ---
