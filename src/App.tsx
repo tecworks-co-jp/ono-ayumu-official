@@ -1,0 +1,928 @@
+import { useState, type ReactNode } from 'react'
+
+const NAV_ITEMS = [
+  { label: '依頼できること', href: '#services' },
+  { label: '講演テーマ', href: '#themes' },
+  { label: '小野歩について', href: '#profile' },
+  { label: '協業のご相談', href: '#alliance' },
+  { label: 'よくある質問', href: '#faq' },
+  { label: 'ご依頼・ご相談', href: '#contact' },
+]
+
+const SERVICES = [
+  {
+    title: '講演・研修・セミナー登壇',
+    items: ['新人エンジニア研修／内定者向け', '採用イベント・学生向けキャリア講演', 'カンファレンス基調講演・パネル登壇'],
+  },
+  {
+    title: '協業・アライアンス',
+    items: ['イベント共催・スポンサード', '共同企画・コンテンツ制作', 'IT人材の採用・育成での連携'],
+  },
+  {
+    title: '取材・対談・出演',
+    items: ['ITキャリア／人材トレンドの解説', '経営者・著者としての対談', '記事・動画・ポッドキャスト出演'],
+  },
+  {
+    title: '執筆・監修',
+    items: ['連載・寄稿記事の執筆', '教材・研修コンテンツの監修', '書籍の企画・共著'],
+  },
+  {
+    title: '組織・採用のご相談',
+    items: ['エンジニア採用・定着の課題整理', '育成カリキュラムの設計相談', '技術組織づくりのアドバイザリー'],
+  },
+  {
+    title: 'キャリア支援・独立支援',
+    items: ['ITエンジニアのキャリア相談', '独立・起業を目指す方の支援', '社員向けキャリア研修'],
+  },
+  {
+    title: 'まずは話してみたい',
+    items: ['30分のオンライン相談', 'tecHub（勉強会）へのご来場', 'MENTAでの1対1キャリア相談'],
+  },
+]
+
+const THEMES = [
+  {
+    no: '01',
+    title: 'AI時代に、ITエンジニアはどう働くか',
+    target: '現役エンジニア／技術組織',
+    duration: '45〜90分（質疑込み）',
+    format: '対面／オンライン',
+  },
+  {
+    no: '02',
+    title: 'ITエンジニア1年目の教科書',
+    target: '新人・内定者／育成担当',
+    duration: '60〜120分（ワーク可）',
+    format: '対面／オンライン',
+  },
+  {
+    no: '03',
+    title: "IT業界の『仕事の地図』を描く",
+    target: '学生／未経験者／転職検討層',
+    duration: '45〜90分',
+    format: '対面／オンライン',
+  },
+  {
+    no: '04',
+    title: '1,000人の相談から見えた、キャリアの分かれ道',
+    target: 'エンジニア全般／人事',
+    duration: '45〜90分',
+    format: '対面／オンライン',
+  },
+  {
+    no: '05',
+    title: '延べ3,500人が集まるコミュニティの作り方',
+    target: 'コミュニティ運営／広報・採用',
+    duration: '45〜60分',
+    format: '対面／オンライン',
+  },
+  {
+    no: '06',
+    title: '会社員から独立へ ― 多角経営に至るまで',
+    target: '独立検討層／新規事業担当',
+    duration: '45〜90分',
+    format: '対面／オンライン',
+  },
+  {
+    no: '07',
+    title: 'ご要望に合わせたオーダーメイド',
+    target: 'ご相談に応じて',
+    duration: 'ご相談に応じて',
+    format: 'ご相談に応じて',
+  },
+]
+
+const BOOKS = [
+  {
+    title: 'ITエンジニア働き方超大全',
+    publisher: '日経BP',
+    year: '2024年4月',
+    rank: { num: '11', unit: '部門', sub: 'Amazonランキング 1位' },
+    subtitle: '就職・転職からフリーランス、起業まで',
+    results: [
+      'ビジネス書総合ランキング7位',
+      '「ITエンジニア本大賞2025 ビジネス書部門」にノミネートされ、ベスト10選出',
+    ],
+    img: '/images/book-hatarakikata.webp',
+  },
+  {
+    title: 'ITエンジニア1年目の教科書',
+    publisher: '講談社',
+    year: '2026年1月',
+    rank: { num: '4', unit: '部門', sub: 'Amazonベストセラー 1位' },
+    subtitle: '現場の心得47箇条',
+    results: [
+      '代官山蔦屋書店で出版記念トークイベント開催（2026年3月）',
+    ],
+    img: '/images/book-1nenme.webp',
+  },
+  {
+    title: 'IT仕事図鑑',
+    publisher: 'インプレス',
+    year: '2026年4月',
+    rank: { num: '6', unit: '部門', sub: 'Amazonランキング 1位' },
+    subtitle: 'はたらく現場と人がイラストでぜんぶわかる！',
+    results: [
+      '1位の部門：情報・コンピュータ産業／高校情報処理教科書 など',
+      '丸善丸の内本店：ノンフィクション4位、ブックファースト新宿店：PCランキング5位',
+    ],
+    img: '/images/book-shigoto-zukan.webp',
+  },
+]
+
+const FAQS = [
+  {
+    q: '謝礼・費用はどのくらいですか？',
+    a: '内容・時間・形式・ご予算に合わせて個別にご相談します。教育機関や非営利イベントについても柔軟に対応しておりますので、まずはお気軽にご連絡ください。',
+  },
+  {
+    q: 'オンライン登壇は可能ですか？',
+    a: 'オンライン・ハイブリッド形式に対応しています。地方での対面開催も、日程が合えばお伺いします。',
+  },
+  {
+    q: 'どのくらい前に依頼すればよいですか？',
+    a: '1〜2か月前にご相談いただけると調整しやすいです。お急ぎの場合もご相談ください。',
+  },
+  {
+    q: 'テーマを自社向けにアレンジできますか？',
+    a: '事前ヒアリングのうえ構成し直すことができます。既存テーマの組み合わせや、完全オーダーメイドにも対応します。',
+  },
+  {
+    q: 'まず一度会って話すことはできますか？',
+    a: "もちろんです。オンライン相談のほか、毎月開催しているIT勉強会・交流会『tecHub』にお越しいただければその場でお話しできます。",
+  },
+]
+
+function SectionTitle({ en, children, dark = false, className = '' }: { en: string; children: ReactNode; dark?: boolean; className?: string }) {
+  return (
+    <div className={className}>
+      <h2
+        className={`text-[26px] md:text-[30px] font-light leading-[1.4] ${dark ? 'text-white' : 'text-[#1c1c1c]'}`}
+        style={{ fontFamily: "'Noto Serif JP', serif" }}
+      >
+        {children}
+      </h2>
+      <div className="flex items-center gap-3 mt-3">
+        <span className="block w-10 h-[2px] bg-[#b8a07a]" />
+        <span
+          aria-hidden="true"
+          className={`font-script italic font-medium text-[22px] md:text-[24px] leading-none select-none ${dark ? 'text-[#b8a07a]' : 'text-[#a58a5a]'}`}
+        >
+          {en}
+        </span>
+      </div>
+    </div>
+  )
+}
+
+export default function App() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const [formData, setFormData] = useState({
+    name: '',
+    company: '',
+    email: '',
+    type: '',
+    timing: '',
+    format: '',
+    message: '',
+  })
+  const [submitted, setSubmitted] = useState(false)
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    setSubmitted(true)
+  }
+
+  return (
+    <div className="min-h-screen bg-white text-[#1c1c1c]" style={{ fontFamily: "'Noto Sans JP', sans-serif" }}>
+
+      {/* Navigation */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-[#e0e0e0]">
+        <div className="max-w-[1100px] mx-auto px-6">
+          <div className="flex items-center justify-between h-[60px]">
+            <a href="#" className="text-[15px] font-semibold tracking-[0.15em] text-[#1a2d4f]" style={{ fontFamily: "'Noto Serif JP', serif" }}>
+              小野 歩　<span className="font-light tracking-[0.1em]">Ayumu Ono</span>
+            </a>
+            {/* Desktop Nav */}
+            <nav className="hidden md:flex items-center gap-8">
+              {NAV_ITEMS.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="text-[14.5px] text-[#1c1c1c] hover:text-[#1a2d4f] transition-colors tracking-wide"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+            {/* Mobile hamburger */}
+            <button
+              className="md:hidden flex flex-col gap-[5px] p-2"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="メニュー"
+            >
+              <span className={`block w-5 h-[1.5px] bg-[#1c1c1c] transition-transform origin-center ${mobileMenuOpen ? 'rotate-45 translate-y-[6.5px]' : ''}`} />
+              <span className={`block w-5 h-[1.5px] bg-[#1c1c1c] transition-opacity ${mobileMenuOpen ? 'opacity-0' : ''}`} />
+              <span className={`block w-5 h-[1.5px] bg-[#1c1c1c] transition-transform origin-center ${mobileMenuOpen ? '-rotate-45 -translate-y-[6.5px]' : ''}`} />
+            </button>
+          </div>
+        </div>
+        {/* Mobile menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-white border-t border-[#e0e0e0]">
+            {NAV_ITEMS.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="block px-6 py-4 text-[15px] border-b border-[#f0f0f0] hover:bg-[#f7f7f5] transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        )}
+      </header>
+
+      {/* Hero */}
+      <section className="pt-[60px]">
+        {/* Main hero: text left, photo right */}
+        <div className="bg-[#0f1c32]">
+          <div className="max-w-[1100px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
+            {/* Left: text */}
+            <div className="py-10 md:py-16 pr-0 md:pr-12 flex flex-col justify-center">
+              <div className="inline-block mb-5 md:mb-6 px-3 py-1.5 border border-[rgba(184,160,122,0.5)] text-[#b8a07a] text-[12.5px] tracking-[0.12em] self-start">
+                ITエンジニア本大賞2025 ビジネス書部門 ベスト10 選出
+              </div>
+              <h1
+                className="text-[26px] md:text-[42px] font-normal leading-[1.6] md:leading-[1.5] tracking-[0.08em] text-white mb-5 md:mb-8"
+                style={{ fontFamily: "'Noto Serif JP', serif" }}
+              >
+                IT人材の可能性を、<br />一緒に広げませんか。
+              </h1>
+              <div className="hidden md:block w-12 h-px bg-[#b8a07a] mb-8" />
+              <p className="text-[15px] md:text-[15.5px] text-[rgba(255,255,255,0.75)] md:text-[rgba(255,255,255,0.65)] leading-[1.85] md:leading-[1.9] mb-0 md:mb-8">
+                イベント・セミナーの企画運営、店舗運営、IT関連事業（システム開発・プログラミングスクール運営）、キャリア支援事業、出版まで、3社で多角経営を実践。1,000人を超えるキャリア相談、延べ3,500人が参加した勉強会「tecHub」ほか主催・共催イベント、3冊の著書で得た現場のリアルを、貴社のイベント・事業・組織づくりにお役立てします。
+              </p>
+              <div className="hidden md:flex flex-wrap gap-3">
+                <a
+                  href="#contact"
+                  className="inline-block text-center px-6 py-3 bg-[#b8a07a] text-white text-[15px] tracking-wide hover:bg-[#a08e6a] transition-colors"
+                >
+                  講演・研修を依頼する →
+                </a>
+                <a
+                  href="#alliance"
+                  className="inline-block text-center px-6 py-2 md:py-3 text-[14px] md:text-[15px] text-[rgba(255,255,255,0.75)] underline underline-offset-4 md:no-underline md:border md:border-[rgba(255,255,255,0.4)] md:text-white tracking-wide hover:bg-[rgba(255,255,255,0.08)] transition-colors"
+                >
+                  協業・事業のご相談
+                </a>
+              </div>
+            </div>
+            {/* Right: photo */}
+            <div className="-mx-6 md:mx-0 relative overflow-hidden h-[480px] md:h-auto">
+              <img
+                src="/images/ono-hero.jpg"
+                alt="小野歩"
+                className="absolute inset-0 w-full h-full object-cover object-top md:object-center"
+              />
+            </div>
+          </div>
+        </div>
+        {/* Stats strip */}
+        <div className="bg-[#1a2d4f]">
+          <div className="max-w-[1100px] mx-auto px-0 md:px-6 grid grid-cols-2 md:grid-cols-4">
+            {[
+              { num: '1,000', unit: '人＋', label: <>キャリア相談の実績</> },
+              { num: '3,500', unit: '人＋', label: <>主催・共催イベント<br />延べ参加者</> },
+              { num: '3', unit: '冊', label: <>商業出版の著書</> },
+              { num: '2022', unit: '〜', label: <>テックワークス創業</> },
+            ].map((stat, i) => (
+              <div
+                key={stat.num}
+                className={`py-7 md:py-8 px-3 md:px-6 text-center border-[rgba(255,255,255,0.12)] ${i < 3 ? (i % 2 === 0 ? 'border-r' : 'md:border-r') : ''} ${i < 2 ? 'border-b md:border-b-0' : ''}`}
+              >
+                <div className="text-white mb-2 leading-none whitespace-nowrap" style={{ fontFamily: "'Noto Serif JP', serif" }}>
+                  <span className="text-[34px] md:text-[44px] font-light">{stat.num}</span>
+                  <span className="text-[17px] md:text-[22px] font-light ml-0.5">{stat.unit}</span>
+                </div>
+                <div className="text-[13px] md:text-[15px] text-[rgba(255,255,255,0.7)] tracking-wide leading-[1.6]">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Service tags strip */}
+        <div className="bg-[#f7f7f5] border-b border-[#e0e0e0]">
+          <div className="max-w-[1100px] mx-auto px-6 py-3 flex flex-wrap gap-6 text-[14px] text-[#6b6b6b] tracking-wide">
+            {['講演・研修', '対談・取材', '執筆・監修', '協業・アライアンス', 'キャリア支援・独立支援'].map((tag) => (
+              <span key={tag} className="flex items-center gap-2">
+                <span className="w-1 h-1 rounded-full bg-[#b8a07a] inline-block" />
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section id="services" className="py-24 max-w-[1100px] mx-auto px-6">
+        <div className="mb-14">
+          <SectionTitle en="Services" className="mb-4">小野歩に依頼できること</SectionTitle>
+          <p className="text-[17px] text-[#6b6b6b] leading-relaxed">
+            「IT人材」と「キャリア」をテーマに、話す・書く・組む。
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#e0e0e0] border border-[#e0e0e0]">
+          {SERVICES.slice(0, 6).map((sv) => (
+            <div key={sv.title} className="bg-white p-6 md:p-8">
+              <h3 className="text-[20px] md:text-[21px] font-semibold mb-5 leading-[1.45] text-[#1c1c1c]" style={{ fontFamily: "'Noto Serif JP', serif" }}>
+                {sv.title}
+              </h3>
+              <ul className="space-y-2">
+                {sv.items.map((item) => (
+                  <li key={item} className="text-[15px] md:text-[16px] text-[#3a3a3a] leading-[1.7] flex items-start gap-2">
+                    <span className="mt-[11px] w-1 h-1 rounded-full bg-[#b8a07a] shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        {(() => {
+          const entry = SERVICES[6]
+          return (
+            <div className="mt-6 bg-[#1a2d4f] px-6 py-8 md:px-10 md:py-9 flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10">
+              <h3 className="text-[20px] md:text-[22px] font-semibold text-white lg:w-[260px] shrink-0 leading-[1.45]" style={{ fontFamily: "'Noto Serif JP', serif" }}>
+                {entry.title}
+              </h3>
+              <ul className="flex-1 flex flex-col md:flex-row md:flex-wrap gap-x-8 gap-y-2">
+                {entry.items.map((item) => (
+                  <li key={item} className="text-[15px] md:text-[16px] text-[rgba(255,255,255,0.9)] leading-[1.7] flex items-start gap-2">
+                    <span className="mt-[11px] w-1 h-1 rounded-full bg-[#b8a07a] shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="#contact"
+                className="inline-block text-center shrink-0 px-8 py-3 border border-white text-white text-[15px] tracking-wide hover:bg-white hover:text-[#1a2d4f] transition-colors"
+              >
+                この内容で相談する →
+              </a>
+            </div>
+          )
+        })()}
+      </section>
+
+      {/* Speaking Themes */}
+      <section id="themes" className="py-20 md:py-24 bg-[#0f1c32] md:bg-[#1a2d4f]">
+        <div className="max-w-[1100px] mx-auto px-6 md:grid md:grid-cols-[300px_1fr] md:grid-rows-[auto_auto_auto_1fr] md:gap-x-14">
+          <div className="mb-10 md:mb-8 md:col-start-1 md:row-start-1">
+            <SectionTitle en="Speaking Themes" dark>講演テーマ例</SectionTitle>
+          </div>
+          <div className="md:hidden border-t border-[rgba(255,255,255,0.15)]">
+            {THEMES.map((theme) => {
+              return (
+                <div key={theme.no} className="border-b border-[rgba(255,255,255,0.15)] py-8">
+                  <div className="text-[12.5px] text-[#b8a07a] font-light tracking-[0.2em] mb-3">
+                    THEME {theme.no}
+                  </div>
+                  <h3 className="text-[22px] font-medium leading-[1.55] text-white text-balance mb-5" style={{ fontFamily: "'Noto Serif JP', serif" }}>
+                    {theme.title.split(/(?<=、)|(?<=―)\s+/).map((part) => (
+                      <span key={part} className="inline-block">{part}</span>
+                    ))}
+                  </h3>
+                  <div className="flex flex-wrap items-center gap-2">
+                    {theme.target.split('／').map((t) => (
+                      <span key={t} className="px-2.5 py-0.5 border border-[rgba(255,255,255,0.3)] text-[13px] text-[rgba(255,255,255,0.85)]">{t}</span>
+                    ))}
+                  </div>
+                  <div className="mt-3 space-y-1 text-[14px] text-[rgba(255,255,255,0.7)]">
+                    <p>時間：{theme.duration}</p>
+                    <p>形式：{theme.format}</p>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+          <div className="hidden md:block md:col-start-2 md:row-start-1 md:row-span-4 border-t border-[rgba(255,255,255,0.15)]">
+            {THEMES.map((theme) => (
+              <div key={theme.no} className="border-b border-[rgba(255,255,255,0.15)] hover:bg-[rgba(255,255,255,0.05)] transition-colors group">
+                <div className="flex items-center px-3 py-6">
+                  <div className="text-[12.5px] text-[#b8a07a] font-light tracking-[0.2em] w-[84px] shrink-0">
+                    THEME {theme.no}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-[17px] font-medium text-white mb-2" style={{ fontFamily: "'Noto Serif JP', serif" }}>
+                      {theme.title}
+                    </h3>
+                    <div className="flex flex-wrap gap-x-4 gap-y-1 text-[13px] text-[rgba(255,255,255,0.7)]">
+                      <span>対象：{theme.target}</span>
+                      <span>時間：{theme.duration}</span>
+                      <span>形式：{theme.format}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 text-center md:mt-8 md:text-left md:col-start-1 md:row-start-3">
+          <a
+            href="#contact"
+            className="inline-block px-8 py-3 border border-white text-white text-[15px] tracking-wide hover:bg-white hover:text-[#0f1c32] transition-colors"
+          >
+            講演・研修を依頼する →
+          </a>
+        </div>
+          <figure className="mt-12 md:mt-0 md:col-start-1 md:row-start-2">
+            <img
+              src="/images/speaking-hotel.jpg"
+              alt="トークイベントで登壇する小野歩"
+              className="w-full aspect-[16/9] md:aspect-[4/3] object-cover object-[45%_65%]"
+            />
+          </figure>
+        </div>
+      </section>
+
+      {/* Profile */}
+      <section id="profile" className="py-24 max-w-[1100px] mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-16">
+          <div>
+            <SectionTitle en="Profile" className="mb-6">小野歩について</SectionTitle>
+            <div className="mb-6">
+              <img
+                src="/images/profile.jpg"
+                alt="小野歩"
+                className="w-full h-[380px] object-cover object-[75%_28%]"
+              />
+            </div>
+            <div className="bg-[#f7f7f5] border border-[#e0e0e0] p-6 space-y-3 text-[15px] text-[#6b6b6b] leading-[1.8]">
+              <div className="flex gap-3">
+                <span className="text-[#8a6f45] shrink-0">氏名</span>
+                <span>小野 歩（おの あゆむ）</span>
+              </div>
+              <div className="flex gap-3">
+                <span className="text-[#8a6f45] shrink-0">現職</span>
+                <span>株式会社テックワークス 代表取締役（ほか2社を経営）</span>
+              </div>
+              <div className="flex gap-3">
+                <span className="text-[#8a6f45] shrink-0">出身</span>
+                <span>大分県大分市／九州大学大学院 卒業</span>
+              </div>
+              <div className="flex gap-3">
+                <span className="text-[#8a6f45] shrink-0">座右の銘</span>
+                <span>不断挑戦</span>
+              </div>
+            </div>
+          </div>
+          <div className="md:pt-[69px]">
+            <h3 className="text-[22px] md:text-[24px] font-light mb-8 leading-[1.6]" style={{ fontFamily: "'Noto Serif JP', serif" }}>
+              「不断挑戦」で、ここまで来ました。
+            </h3>
+            {/* Bio paragraphs */}
+            <div className="space-y-5 mb-10 text-[15.5px] leading-[1.9] text-[#1c1c1c]">
+              <p>大分県大分市に生まれ、九州大学大学院を卒業後、NECに入社。ITエンジニアとしての基礎を培いながら、並行して独立の準備を進めていました。</p>
+              <p>これまでに1,000人を超えるエンジニアのキャリア相談に応じ、IT勉強会・交流会「tecHub」を秋葉原で主宰。主催・共催イベントの参加者は延べ3,500人を超えます。</p>
+              <p>「願望は知識から生まれる」。選択肢を知らなければ、人は願うことすらできない。だからこそ、話す・書く・つなぐという形で「知るきっかけ」を届け続けています。</p>
+            </div>
+            {/* Timeline */}
+            <div className="space-y-0 mb-10 relative">
+              <div className="absolute left-[3.5rem] top-0 bottom-0 w-px bg-[#e0e0e0]" />
+              {[
+                { year: '大学院', event: '九州大学大学院 卒業後、NECにてエンジニアとして勤務' },
+                { year: '2009', event: '11月、1社目を創業（イベント・セミナーの企画運営）' },
+                { year: '2017', event: '12月、2社目を創業（漢方セレクトショップ・整体院の運営）' },
+                { year: '2022', event: '7月、株式会社テックワークス創業。IT関連事業・キャリア支援・出版を展開' },
+              ].map((item) => (
+                <div key={item.year} className="flex gap-6 items-start pb-6 relative">
+                  <div className="text-[12.5px] text-[#8a6f45] w-[56px] shrink-0 pt-[3px] text-right">{item.year}</div>
+                  <div className="relative z-10 w-[7px] h-[7px] rounded-full bg-[#b8a07a] shrink-0 mt-[5px] ml-[-3.5px]" />
+                  <p className="text-[15.5px] text-[#1c1c1c] leading-[1.8]">{item.event}</p>
+                </div>
+              ))}
+            </div>
+            <div className="border-t border-[#e0e0e0] pt-8">
+              <p className="text-[14px] text-[#8a6f45] mb-6 tracking-[0.1em]">Q &amp; A</p>
+              <div className="space-y-6">
+                {[
+                  { q: '講演で大事にしていることは？', a: '一般論で終わらせないことです。' },
+                  { q: 'どんな相談が多いですか？', a: '新人研修と採用イベントの登壇、そしてコミュニティ絡みの共催企画が多いです。' },
+                  { q: '直接会うことはできますか？', a: 'はい。毎月開催しているtecHubにお越しいただければ、その場でお話しできます。' },
+                ].map((qa) => (
+                  <div key={qa.q} className="border-l-2 border-[#e0e0e0] pl-4">
+                    <p className="text-[14px] text-[#6b6b6b] mb-1">Q. {qa.q}</p>
+                    <p className="text-[16px] font-medium" style={{ fontFamily: "'Noto Serif JP', serif" }}>{qa.a}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-8 p-5 bg-[#f7f7f5] border border-[#e0e0e0]">
+                <p className="text-[12.5px] text-[#8a6f45] tracking-[0.12em] mb-1">理念</p>
+                <p className="text-[18px] font-light" style={{ fontFamily: "'Noto Serif JP', serif" }}>願望は知識から生まれる</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-24 bg-[#f7f7f5]">
+        <div className="max-w-[1100px] mx-auto px-6">
+          <div className="mb-14">
+            <SectionTitle en="Voices">ご依頼いただいた方の声</SectionTitle>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#e0e0e0] border border-[#e0e0e0]">
+            {[
+              {
+                quote: '新人研修でお願いしました。「現場で本当に起きること」を具体的に話していただけたので、受講者の反応がまったく違いました。翌年も継続でお願いしています。',
+                role: 'IT企業 人事ご担当者様',
+              },
+              {
+                quote: 'カンファレンスに登壇いただきました。事前のすり合わせが丁寧で、当日は会場の熱量が明らかに上がりました。参加者アンケートでも満足度が最上位でした。',
+                role: 'カンファレンス主催者様',
+              },
+              {
+                quote: 'イベント共催でご一緒しました。「まずやってみましょう」と動いてくださるので進行が速く、次の企画の話まで自然に広がりました。',
+                role: '共催パートナー企業様',
+              },
+            ].map((v) => (
+              <div key={v.role} className="bg-white p-8 flex flex-col">
+                <p className="text-[26px] font-light text-[#e0e0e0] mb-3 leading-none" style={{ fontFamily: "'Noto Serif JP', serif" }}>"</p>
+                <p className="text-[15.5px] leading-[1.9] flex-1 mb-6">{v.quote}</p>
+                <p className="text-[13px] text-[#8a6f45] tracking-wide">— {v.role}</p>
+              </div>
+            ))}
+          </div>
+          <figure className="mt-12">
+            <img
+              src="/images/speaking-hall.jpg"
+              alt="セミナーで登壇する小野歩"
+              className="w-full aspect-[16/9] md:aspect-[21/9] object-cover object-[65%_50%]"
+            />
+          </figure>
+        </div>
+      </section>
+
+      {/* Books */}
+      <section className="py-24 md:py-28 bg-[#0f1c32]">
+        <div className="max-w-[1100px] mx-auto px-6">
+          <div className="mb-16 text-center">
+            <p className="font-script italic font-medium text-[36px] md:text-[44px] leading-[1] tracking-[0.02em] text-[#b8a07a] mb-2 select-none">Books</p>
+            <h2 className="text-[30px] md:text-[36px] font-normal tracking-[0.15em] text-white" style={{ fontFamily: "'Noto Serif JP', serif" }}>著書</h2>
+            <div className="w-12 h-px bg-[#b8a07a] mx-auto mt-6" />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {BOOKS.map((book) => (
+              <div key={book.title} className="group flex flex-col items-center text-center border border-[rgba(184,160,122,0.5)] bg-[rgba(255,255,255,0.03)] px-6 pt-10 pb-8">
+                <div className="w-[70%] md:w-[80%] max-w-[260px] aspect-[7/10] mb-8 overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.45)] transition-transform duration-300 group-hover:-translate-y-2">
+                  <img
+                    src={book.img}
+                    alt={book.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-[19px] font-medium mb-2 leading-[1.6] tracking-[0.05em] text-white" style={{ fontFamily: "'Noto Serif JP', serif" }}>{book.title}</h3>
+                <p className="text-[14px] text-[rgba(255,255,255,0.6)] mb-2 leading-[1.6] md:min-h-[3.2em]">{book.subtitle}</p>
+                <p className="text-[14px] text-[#b8a07a] mb-6 tracking-[0.08em]">{book.publisher}／{book.year}</p>
+                <div className="w-full border-y border-[rgba(184,160,122,0.4)] text-white py-4 mb-6">
+                  <div className="text-[13px] text-[rgba(255,255,255,0.65)] tracking-[0.1em]">{book.rank.sub}</div>
+                  <div className="leading-none mt-1" style={{ fontFamily: "'Noto Serif JP', serif" }}>
+                    <span className="text-[40px] font-normal text-[#b8a07a]">{book.rank.num}</span>
+                    <span className="text-[17px] ml-1">{book.rank.unit}で獲得</span>
+                  </div>
+                </div>
+                <ul className="text-left text-[15px] text-white leading-[1.75] space-y-3 w-full">
+                  {book.results.map((r) => (
+                    <li key={r} className="flex gap-2">
+                      <span className="text-[#b8a07a] mt-[2px]">●</span>
+                      <span>{r}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Alliance / Partnership */}
+      <section id="alliance" className="py-24 max-w-[1100px] mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+          <div>
+            <SectionTitle en="Alliance" className="mb-4">一緒に組みたい方へ</SectionTitle>
+            <p className="text-[16px] text-[#6b6b6b] leading-[1.9] mb-10">
+              「IT業界で働く人の可能性を広げる」という一点に向かえるなら、規模や業種は問いません。
+            </p>
+            <a
+              href="#contact"
+              className="inline-block px-6 py-3 bg-[#1a2d4f] text-white text-[15px] tracking-wide hover:bg-[#0f1c32] transition-colors"
+            >
+              協業について相談する →
+            </a>
+          </div>
+          <div className="grid grid-cols-1 gap-px bg-[#e0e0e0] border border-[#e0e0e0]">
+            {[
+              { title: 'イベント共催・企画運営', desc: 'IT系勉強会・カンファレンスの共催、企画・運営サポート' },
+              { title: 'コンテンツ・メディア連携', desc: '記事・動画・ポッドキャストなど、メディア企画での連携' },
+              { title: '人材・育成での連携', desc: 'エンジニア採用・育成プログラムの設計・提供' },
+              { title: '開発・事業のご相談', desc: 'テックワークスが手がける開発・事業への参画・連携' },
+            ].map((item) => (
+              <div key={item.title} className="bg-white px-7 py-5 hover:bg-[#f7f7f5] transition-colors">
+                <h3 className="text-[16px] font-medium mb-1.5" style={{ fontFamily: "'Noto Serif JP', serif" }}>{item.title}</h3>
+                <p className="text-[14.5px] text-[#6b6b6b] leading-[1.7]">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process */}
+      <section className="py-20 bg-[#1a2d4f]">
+        <div className="max-w-[1100px] mx-auto px-6">
+          <div className="mb-12 text-center">
+            <p className="font-script italic font-medium text-[36px] md:text-[44px] leading-[1] tracking-[0.02em] text-[#b8a07a] mb-2 select-none">Process</p>
+            <h2 className="text-[28px] font-light text-white" style={{ fontFamily: "'Noto Serif JP', serif" }}>ご依頼の流れ</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[rgba(255,255,255,0.12)] border border-[rgba(255,255,255,0.12)]">
+            {[
+              { step: '01', title: 'お問い合わせ', desc: 'フォームまたはメールにてご連絡ください。内容が固まっていない段階でも歓迎です。' },
+              { step: '02', title: 'オンラインで30分', desc: 'まずは30分のオンライン相談を実施。ご要望・ご予算・スケジュールを伺います。' },
+              { step: '03', title: '実施・その後', desc: '詳細を詰め、実施に向けて準備を進めます。終了後もご相談いただけます。' },
+            ].map((item) => (
+              <div key={item.step} className="bg-[rgba(255,255,255,0.04)] px-8 py-8 text-center">
+                <div className="text-[12.5px] text-[#b8a07a] tracking-[0.2em] mb-4">STEP {item.step}</div>
+                <h3 className="text-[17px] font-light text-white mb-3" style={{ fontFamily: "'Noto Serif JP', serif" }}>{item.title}</h3>
+                <p className="text-[14.5px] text-[rgba(255,255,255,0.6)] leading-[1.8]">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-[14px] text-[rgba(255,255,255,0.45)] mt-6">
+            お問い合わせから実施まで、通常2〜3週間程度です。
+          </p>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="py-24 max-w-[1100px] mx-auto px-6">
+        <div className="mb-14">
+          <SectionTitle en="FAQ">よくある質問</SectionTitle>
+        </div>
+        <div className="space-y-px bg-[#e0e0e0] border border-[#e0e0e0]">
+          {FAQS.map((faq, i) => (
+            <div key={i} className="bg-white">
+              <button
+                className="w-full flex items-center justify-between px-8 py-5 text-left hover:bg-[#f7f7f5] transition-colors"
+                onClick={() => setOpenFaq(openFaq === i ? null : i)}
+              >
+                <span className="text-[16px] font-medium pr-8" style={{ fontFamily: "'Noto Serif JP', serif" }}>
+                  Q. {faq.q}
+                </span>
+                <span className="text-[#8a6f45] text-[20px] font-light leading-none shrink-0">
+                  {openFaq === i ? '−' : '+'}
+                </span>
+              </button>
+              {openFaq === i && (
+                <div className="px-8 pb-6 border-t border-[#f0f0f0]">
+                  <p className="text-[15.5px] text-[#6b6b6b] leading-[1.9] pt-4">{faq.a}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="py-24 bg-[#f7f7f5]">
+        <div className="max-w-[1100px] mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-16">
+            <div>
+              <SectionTitle en="Contact" className="mb-4">ご依頼・ご相談</SectionTitle>
+              <p className="text-[15.5px] text-[#6b6b6b] leading-[1.9] mb-8">
+                講演・研修、協業、取材、執筆、組織のご相談まで。内容が固まっていない段階のお問い合わせも歓迎です。
+              </p>
+              <div className="space-y-3 text-[14.5px] text-[#6b6b6b]">
+                <div className="flex items-center gap-2">
+                  <span className="w-1 h-1 rounded-full bg-[#b8a07a]" />
+                  原則2営業日以内にご返信します
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-1 h-1 rounded-full bg-[#b8a07a]" />
+                  まずは30分のオンライン相談から
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-1 h-1 rounded-full bg-[#b8a07a]" />
+                  ご予算・スケジュールの制約もご相談ください
+                </div>
+              </div>
+            </div>
+            <div className="bg-white border border-[#e0e0e0] p-8">
+              {submitted ? (
+                <div className="text-center py-12">
+                  <div className="text-[#1a2d4f] text-[28px] mb-3">✓</div>
+                  <p className="text-[17px]" style={{ fontFamily: "'Noto Serif JP', serif" }}>
+                    送信ありがとうございます
+                  </p>
+                  <p className="text-[14.5px] text-[#6b6b6b] mt-2">
+                    （プロトタイプのため実際には送信されていません）
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-[14px] text-[#6b6b6b] mb-1.5">
+                        お名前 <span className="text-[#8a6f45]">＊</span>
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="w-full border border-[#e0e0e0] px-4 py-2.5 text-[15px] focus:outline-none focus:border-[#1a2d4f] transition-colors bg-white"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[14px] text-[#6b6b6b] mb-1.5">会社名・団体名</label>
+                      <input
+                        type="text"
+                        value={formData.company}
+                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                        className="w-full border border-[#e0e0e0] px-4 py-2.5 text-[15px] focus:outline-none focus:border-[#1a2d4f] transition-colors bg-white"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-[14px] text-[#6b6b6b] mb-1.5">
+                      メールアドレス <span className="text-[#8a6f45]">＊</span>
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full border border-[#e0e0e0] px-4 py-2.5 text-[15px] focus:outline-none focus:border-[#1a2d4f] transition-colors bg-white"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[14px] text-[#6b6b6b] mb-1.5">
+                      ご依頼の種類 <span className="text-[#8a6f45]">＊</span>
+                    </label>
+                    <select
+                      required
+                      value={formData.type}
+                      onChange={(e) => setFormData({ ...formData, type: e.target.value })}
+                      className="w-full border border-[#e0e0e0] px-4 py-2.5 text-[15px] focus:outline-none focus:border-[#1a2d4f] transition-colors bg-white appearance-none"
+                    >
+                      <option value="">選択してください</option>
+                      <option>講演・研修・セミナー登壇</option>
+                      <option>協業・アライアンスのご相談</option>
+                      <option>取材・対談・メディア出演</option>
+                      <option>執筆・監修</option>
+                      <option>キャリア支援・独立支援</option>
+                      <option>組織・採用のご相談</option>
+                      <option>まずは相談したい</option>
+                    </select>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-[14px] text-[#6b6b6b] mb-1.5">開催・実施の希望時期</label>
+                      <input
+                        type="text"
+                        value={formData.timing}
+                        onChange={(e) => setFormData({ ...formData, timing: e.target.value })}
+                        placeholder="例：2026年10月頃"
+                        className="w-full border border-[#e0e0e0] px-4 py-2.5 text-[15px] focus:outline-none focus:border-[#1a2d4f] transition-colors bg-white placeholder-[#ccc]"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[14px] text-[#6b6b6b] mb-1.5">形式</label>
+                      <select
+                        value={formData.format}
+                        onChange={(e) => setFormData({ ...formData, format: e.target.value })}
+                        className="w-full border border-[#e0e0e0] px-4 py-2.5 text-[15px] focus:outline-none focus:border-[#1a2d4f] transition-colors bg-white appearance-none"
+                      >
+                        <option value="">選択してください</option>
+                        <option>対面</option>
+                        <option>オンライン</option>
+                        <option>ハイブリッド</option>
+                        <option>未定・相談したい</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-[14px] text-[#6b6b6b] mb-1.5">
+                      ご相談内容 <span className="text-[#8a6f45]">＊</span>
+                    </label>
+                    <textarea
+                      required
+                      rows={5}
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      className="w-full border border-[#e0e0e0] px-4 py-2.5 text-[15px] focus:outline-none focus:border-[#1a2d4f] transition-colors bg-white resize-none"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full py-3.5 bg-[#1a2d4f] text-white text-[15px] tracking-wide hover:bg-[#0f1c32] transition-colors"
+                  >
+                    この内容で相談する →
+                  </button>
+                </form>
+              )}
+            </div>
+          </div>
+          <p className="text-center text-[20px] font-light mt-16 text-[#1c1c1c]" style={{ fontFamily: "'Noto Serif JP', serif" }}>
+            「ちょっと話を聞いてみたい」から、どうぞ。
+          </p>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-[#1c1c1c] text-white pt-16 pb-28 md:pb-16">
+        <div className="max-w-[1100px] mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-12 mb-12">
+            <div>
+              <p className="text-[15px] tracking-[0.2em] font-semibold mb-3" style={{ fontFamily: "'Noto Serif JP', serif" }}>
+                AYUMU ONO — OFFICIAL SITE
+              </p>
+              <p className="text-[14.5px] text-[rgba(255,255,255,0.5)] leading-[1.9] max-w-[320px]">
+                株式会社テックワークス代表取締役。IT関連事業・キャリア支援事業・店舗運営事業・出版など幅広く事業を展開。
+              </p>
+            </div>
+            <div>
+              <p className="text-[12px] tracking-[0.2em] text-[#b8a07a] mb-4 uppercase">Menu</p>
+              <ul className="space-y-2.5">
+                {NAV_ITEMS.map((item) => (
+                  <li key={item.href}>
+                    <a
+                      href={item.href}
+                      className="text-[14px] text-[rgba(255,255,255,0.55)] hover:text-white transition-colors"
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="text-[12px] tracking-[0.2em] text-[#b8a07a] mb-4 uppercase">Link</p>
+              <ul className="space-y-2.5">
+                {[
+                  { label: '株式会社テックワークス', href: '#' },
+                  { label: 'テックワークス note', href: '#' },
+                  { label: 'tecHub 開催レポート', href: '#' },
+                  { label: 'MENTA（キャリア相談）', href: '#' },
+                  { label: '著書（Amazon）', href: '#' },
+                ].map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className="text-[14px] text-[rgba(255,255,255,0.55)] hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-[rgba(255,255,255,0.1)] pt-6 text-[12.5px] text-[rgba(255,255,255,0.3)]">
+            © 2026 Ayumu Ono. All rights reserved. 株式会社テックワークス 代表取締役
+          </div>
+        </div>
+      </footer>
+
+      {/* Fixed bottom buttons */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 flex md:hidden border-t border-[#e0e0e0]">
+        <a
+          href="#themes"
+          className="flex-1 py-4 text-center text-[14px] font-medium bg-white text-[#1c1c1c] border-r border-[#e0e0e0]"
+        >
+          講演テーマ
+        </a>
+        <a
+          href="#contact"
+          className="flex-1 py-4 text-center text-[14px] font-medium bg-[#1a2d4f] text-white"
+        >
+          ご依頼・ご相談
+        </a>
+      </div>
+      {/* Desktop fixed CTA */}
+      <div className="hidden md:flex fixed bottom-8 right-8 gap-2 z-40">
+        <a
+          href="#themes"
+          className="px-5 py-2.5 bg-white text-[#1c1c1c] text-[14px] border border-[#e0e0e0] shadow-sm hover:bg-[#f7f7f5] transition-colors"
+        >
+          講演テーマ
+        </a>
+        <a
+          href="#contact"
+          className="px-5 py-2.5 bg-[#1a2d4f] text-white text-[14px] shadow-sm hover:bg-[#0f1c32] transition-colors"
+        >
+          ご依頼・ご相談
+        </a>
+      </div>
+    </div>
+  )
+}
