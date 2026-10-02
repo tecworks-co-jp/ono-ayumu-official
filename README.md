@@ -3,7 +3,7 @@
 代表 小野歩氏の **著者・個人ブランディング** を目的としたオフィシャルサイトのプロトタイプ（提案版）です。
 デザイン案を **複数並べて比較できる** 構成にしています。各案はそれぞれ独立した1枚完結（シングルページ）のHTMLです。
 
-最終更新: 2026-08-28 ／ ステータス: **提案・たたき台**
+最終更新: 2026-10-03 ／ ステータス: **提案・たたき台**
 
 ---
 
@@ -33,9 +33,14 @@
  ├─ site7/        案7：Figma Make版の再現（紺 × 金茶／明朝見出し／依頼導線重視）
  │   ├─ index.html
  │   └─ assets/   style.css / main.js / img/
- └─ site8/        案8：Figma Makeエクスポート（デザイン変更リクエスト.zip）の再現（案7と同構成・Noto書体）
-     ├─ index.html
-     └─ assets/   style.css / main.js / img/
+ ├─ site8/        案8：Figma Makeエクスポート（デザイン変更リクエスト.zip）の再現（案7と同構成・Noto書体）
+ │   ├─ index.html
+ │   └─ assets/   style.css / main.js / img/
+ ├─ site9/        案9：Figma Make（React）版の **ビルド結果**（直接編集しない。site9-src から生成）
+ │   ├─ index.html
+ │   ├─ assets/   ビルドされた JS / CSS
+ │   └─ images/
+ └─ site9-src/    案9のソース（React + Vite + Tailwind／matchan_demo ブランチ由来）
 ```
 
 | URL | 内容 |
@@ -49,10 +54,21 @@
 | https://tecworks-co-jp.github.io/ono-ayumu-official/site6 | 案6（案2ベース・レビュー反映用） |
 | https://tecworks-co-jp.github.io/ono-ayumu-official/site7 | 案7（Figma Make版の再現） |
 | https://tecworks-co-jp.github.io/ono-ayumu-official/site8 | 案8（Figma Makeエクスポートの再現・案7と同構成） |
+| https://tecworks-co-jp.github.io/ono-ayumu-official/site9 | 案9（Figma Make・React版をビルドして公開） |
 
 - 各案は **CSS/JSを共有せず自己完結** させています（案ごとにデザインを自由に変えられるようにするため）。
 - 各案の右下（案5はPAGE TOPボタンと重なるため左下）に「案一覧へ」戻るピルを表示しています。**公開時には削除**してください（各案の `index.html` 内の `proposal-switch` ブロック。案2・案4・案5・案6・案7・案8は `assets/style.css` の `.proposal-switch` も）。
 - 案を追加するときは `siteN/` ディレクトリを作り、ルートの `index.html` にカードを1枚追加します。
+- **案9だけは React 製**です。`site9/` はビルド結果なので直接編集せず、`site9-src/` を編集してビルドし直します（要 Node.js・pnpm・git-lfs）。「案一覧へ」ピルは `site9-src/index.html` にあります。
+
+  ```bash
+  cd site9-src
+  pnpm install
+  pnpm run dev          # 開発サーバー（http://localhost:8443）
+  pnpm run build:pages  # ../site9 にビルド結果を出力 → コミットして push
+  ```
+
+  matchan_demo ブランチの更新を取り込むときは `git merge -X subtree=site9-src origin/matchan_demo` のあと `pnpm run build:pages` を実行します。
 
 ---
 

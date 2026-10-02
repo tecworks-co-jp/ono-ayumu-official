@@ -103,7 +103,7 @@ const BOOKS = [
       'ビジネス書総合ランキング7位',
       '「ITエンジニア本大賞2025 ビジネス書部門」にノミネートされ、ベスト10選出',
     ],
-    img: '/images/book-hatarakikata.webp',
+    img: 'images/book-hatarakikata.webp',
   },
   {
     title: 'ITエンジニア1年目の教科書',
@@ -114,7 +114,7 @@ const BOOKS = [
     results: [
       '代官山蔦屋書店で出版記念トークイベント開催（2026年3月）',
     ],
-    img: '/images/book-1nenme.webp',
+    img: 'images/book-1nenme.webp',
   },
   {
     title: 'IT仕事図鑑',
@@ -126,7 +126,7 @@ const BOOKS = [
       '1位の部門：情報・コンピュータ産業／高校情報処理教科書 など',
       '丸善丸の内本店：ノンフィクション4位、ブックファースト新宿店：PCランキング5位',
     ],
-    img: '/images/book-shigoto-zukan.webp',
+    img: 'images/book-shigoto-zukan.webp',
   },
 ]
 
@@ -283,7 +283,7 @@ export default function App() {
             {/* Right: photo */}
             <div className="-mx-6 md:mx-0 relative overflow-hidden h-[480px] md:h-auto">
               <img
-                src="/images/ono-hero.jpg"
+                src="images/ono-hero.jpg"
                 alt="小野歩"
                 className="absolute inset-0 w-full h-full object-cover object-top md:object-center"
               />
@@ -438,7 +438,7 @@ export default function App() {
         </div>
           <figure className="mt-12 md:mt-0 md:col-start-1 md:row-start-2">
             <img
-              src="/images/speaking-hotel.jpg"
+              src="images/speaking-hotel.jpg"
               alt="トークイベントで登壇する小野歩"
               className="w-full aspect-[16/9] md:aspect-[4/3] object-cover object-[45%_65%]"
             />
@@ -453,7 +453,7 @@ export default function App() {
             <SectionTitle en="Profile" className="mb-6">小野歩について</SectionTitle>
             <div className="mb-6">
               <img
-                src="/images/profile.jpg"
+                src="images/profile.jpg"
                 alt="小野歩"
                 className="w-full h-[380px] object-cover object-[75%_28%]"
               />
@@ -556,7 +556,7 @@ export default function App() {
           </div>
           <figure className="mt-12">
             <img
-              src="/images/speaking-hall.jpg"
+              src="images/speaking-hall.jpg"
               alt="セミナーで登壇する小野歩"
               className="w-full aspect-[16/9] md:aspect-[21/9] object-cover object-[65%_50%]"
             />

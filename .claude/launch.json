@@ -10,7 +10,7 @@
     {
       "name": "site9",
       "runtimeExecutable": "pnpm",
-      "runtimeArgs": ["--dir", "site9", "run", "dev"],
+      "runtimeArgs": ["--dir", "site9-src", "run", "dev"],
       "port": 8443
     }
   ]
