@@ -1,0 +1,12 @@
+{
+  "title": "Ayumu Ono | Official Site",
+  "language": "ja",
+  "description": "Transform existing website designs without altering the text, allowing users to create visually appealing profiles that enhance user engagement.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
