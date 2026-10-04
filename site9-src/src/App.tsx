@@ -36,10 +36,6 @@ const SERVICES = [
     title: 'キャリア支援・独立支援',
     items: ['ITエンジニアのキャリア相談', '独立・起業を目指す方の支援', '社員向けキャリア研修'],
   },
-  {
-    title: 'まずは話してみたい',
-    items: ['30分のオンライン相談', 'tecHub（勉強会）へのご来場', 'MENTAでの1対1キャリア相談'],
-  },
 ]
 
 const THEMES = [
@@ -342,7 +338,7 @@ export default function App() {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#e0e0e0] border border-[#e0e0e0]">
-          {SERVICES.slice(0, 6).map((sv) => (
+          {SERVICES.map((sv) => (
             <div key={sv.title} className="bg-white p-6 md:p-8">
               <h3 className="text-[20px] md:text-[21px] font-semibold mb-5 leading-[1.45] text-[#1c1c1c]" style={{ fontFamily: "'Noto Serif JP', serif" }}>
                 {sv.title}
@@ -358,30 +354,6 @@ export default function App() {
             </div>
           ))}
         </div>
-        {(() => {
-          const entry = SERVICES[6]
-          return (
-            <div className="mt-6 bg-[#1a2d4f] px-6 py-8 md:px-10 md:py-9 flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10">
-              <h3 className="text-[20px] md:text-[22px] font-semibold text-white lg:w-[260px] shrink-0 leading-[1.45]" style={{ fontFamily: "'Noto Serif JP', serif" }}>
-                {entry.title}
-              </h3>
-              <ul className="flex-1 flex flex-col md:flex-row md:flex-wrap gap-x-8 gap-y-2">
-                {entry.items.map((item) => (
-                  <li key={item} className="text-[15px] md:text-[16px] text-[rgba(255,255,255,0.9)] leading-[1.7] flex items-start gap-2">
-                    <span className="mt-[11px] w-1 h-1 rounded-full bg-[#b8a07a] shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <a
-                href="#contact"
-                className="inline-block text-center shrink-0 px-8 py-3 border border-white text-white text-[15px] tracking-wide hover:bg-white hover:text-[#1a2d4f] transition-colors"
-              >
-                この内容で相談する →
-              </a>
-            </div>
-          )
-        })()}
       </section>
 
       {/* Speaking Themes */}
