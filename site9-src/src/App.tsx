@@ -780,10 +780,8 @@ export default function App() {
               <ul className="space-y-2.5">
                 {[
                   { label: '株式会社テックワークス', href: 'https://tecworks.co.jp/' },
-                  { label: 'テックワークス note', href: '#' },
-                  { label: 'tecHub 開催レポート', href: '#' },
-                  { label: 'MENTA（キャリア相談）', href: '#' },
-                  { label: '著書（Amazon）', href: '#' },
+                  { label: 'note', href: 'https://note.com/mu0401' },
+                  { label: 'MENTA（キャリア相談）', href: 'https://menta.work/plan/19067' },
                 ].map((link) => (
                   <li key={link.label}>
                     <a
