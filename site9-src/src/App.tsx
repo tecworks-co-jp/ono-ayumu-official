@@ -81,13 +81,6 @@ const THEMES = [
     duration: '45〜90分',
     format: '対面／オンライン',
   },
-  {
-    no: '07',
-    title: 'ご要望に合わせたオーダーメイド',
-    target: 'ご相談に応じて',
-    duration: 'ご相談に応じて',
-    format: 'ご相談に応じて',
-  },
 ]
 
 const BOOKS = [
