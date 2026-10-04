@@ -672,22 +672,6 @@ export default function App() {
           </div>
         </div>
       </footer>
-
-      {/* Desktop fixed CTA */}
-      <div className="hidden md:flex fixed bottom-8 right-8 gap-2 z-40">
-        <a
-          href="#themes"
-          className="px-5 py-2.5 bg-white text-[#1c1c1c] text-[14px] border border-[#e0e0e0] shadow-sm hover:bg-[#f7f7f5] transition-colors"
-        >
-          講演テーマ
-        </a>
-        <a
-          href="https://tecworks.co.jp/contact.html"
-          className="px-5 py-2.5 bg-[#1a2d4f] text-white text-[14px] shadow-sm hover:bg-[#0f1c32] transition-colors"
-        >
-          ご依頼・ご相談
-        </a>
-      </div>
     </div>
   )
 }
