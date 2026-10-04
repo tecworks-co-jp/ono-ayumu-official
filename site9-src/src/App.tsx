@@ -401,14 +401,6 @@ export default function App() {
               </div>
             ))}
           </div>
-          <div className="mt-10 text-center md:mt-8 md:text-left md:col-start-1 md:row-start-3">
-          <a
-            href="#contact"
-            className="inline-block px-8 py-3 border border-white text-white text-[15px] tracking-wide hover:bg-white hover:text-[#0f1c32] transition-colors"
-          >
-            講演・研修を依頼する →
-          </a>
-        </div>
           <figure className="mt-12 md:mt-0 md:col-start-1 md:row-start-2">
             <img
               src="images/speaking-hotel.jpg"
