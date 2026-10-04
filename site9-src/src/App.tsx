@@ -214,21 +214,6 @@ function SectionTitle({ en, children, dark = false, className = '' }: { en: stri
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [openFaq, setOpenFaq] = useState<number | null>(null)
-  const [formData, setFormData] = useState({
-    name: '',
-    company: '',
-    email: '',
-    type: '',
-    timing: '',
-    format: '',
-    message: '',
-  })
-  const [submitted, setSubmitted] = useState(false)
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setSubmitted(true)
-  }
 
   return (
     <div className="min-h-screen bg-white text-[#1c1c1c]" style={{ fontFamily: "'Noto Sans JP', sans-serif" }}>
@@ -608,143 +593,30 @@ export default function App() {
       {/* Contact */}
       <section id="contact" className="py-24 bg-[#f7f7f5]">
         <div className="max-w-[1100px] mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-16">
-            <div>
-              <SectionTitle en="Contact" className="mb-4">ご依頼・ご相談</SectionTitle>
-              <p className="text-[15.5px] text-[#6b6b6b] leading-[1.9] mb-8">
-                講演・研修、協業、取材、執筆、組織のご相談まで。内容が固まっていない段階のお問い合わせも歓迎です。
-              </p>
-              <div className="space-y-3 text-[14.5px] text-[#6b6b6b]">
-                <div className="flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-[#b8a07a]" />
-                  原則2営業日以内にご返信します
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-[#b8a07a]" />
-                  まずは30分のオンライン相談から
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-[#b8a07a]" />
-                  ご予算・スケジュールの制約もご相談ください
-                </div>
-              </div>
+          <SectionTitle en="Contact" className="mb-4">ご依頼・ご相談</SectionTitle>
+          <p className="text-[15.5px] text-[#6b6b6b] leading-[1.9] mb-8">
+            講演・研修、協業、取材、執筆、組織のご相談まで。内容が固まっていない段階のお問い合わせも歓迎です。
+          </p>
+          <div className="space-y-3 text-[14.5px] text-[#6b6b6b]">
+            <div className="flex items-center gap-2">
+              <span className="w-1 h-1 rounded-full bg-[#b8a07a]" />
+              原則2営業日以内にご返信します
             </div>
-            <div className="bg-white border border-[#e0e0e0] p-8">
-              {submitted ? (
-                <div className="text-center py-12">
-                  <div className="text-[#1a2d4f] text-[28px] mb-3">✓</div>
-                  <p className="text-[17px]" style={{ fontFamily: "'Noto Serif JP', serif" }}>
-                    送信ありがとうございます
-                  </p>
-                  <p className="text-[14.5px] text-[#6b6b6b] mt-2">
-                    （プロトタイプのため実際には送信されていません）
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-[14px] text-[#6b6b6b] mb-1.5">
-                        お名前 <span className="text-[#8a6f45]">＊</span>
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full border border-[#e0e0e0] px-4 py-2.5 text-[15px] focus:outline-none focus:border-[#1a2d4f] transition-colors bg-white"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[14px] text-[#6b6b6b] mb-1.5">会社名・団体名</label>
-                      <input
-                        type="text"
-                        value={formData.company}
-                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        className="w-full border border-[#e0e0e0] px-4 py-2.5 text-[15px] focus:outline-none focus:border-[#1a2d4f] transition-colors bg-white"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-[14px] text-[#6b6b6b] mb-1.5">
-                      メールアドレス <span className="text-[#8a6f45]">＊</span>
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full border border-[#e0e0e0] px-4 py-2.5 text-[15px] focus:outline-none focus:border-[#1a2d4f] transition-colors bg-white"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-[14px] text-[#6b6b6b] mb-1.5">
-                      ご依頼の種類 <span className="text-[#8a6f45]">＊</span>
-                    </label>
-                    <select
-                      required
-                      value={formData.type}
-                      onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                      className="w-full border border-[#e0e0e0] px-4 py-2.5 text-[15px] focus:outline-none focus:border-[#1a2d4f] transition-colors bg-white appearance-none"
-                    >
-                      <option value="">選択してください</option>
-                      <option>講演・研修・セミナー登壇</option>
-                      <option>協業・アライアンスのご相談</option>
-                      <option>取材・対談・メディア出演</option>
-                      <option>執筆・監修</option>
-                      <option>キャリア支援・独立支援</option>
-                      <option>組織・採用のご相談</option>
-                      <option>まずは相談したい</option>
-                    </select>
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-[14px] text-[#6b6b6b] mb-1.5">開催・実施の希望時期</label>
-                      <input
-                        type="text"
-                        value={formData.timing}
-                        onChange={(e) => setFormData({ ...formData, timing: e.target.value })}
-                        placeholder="例：2026年10月頃"
-                        className="w-full border border-[#e0e0e0] px-4 py-2.5 text-[15px] focus:outline-none focus:border-[#1a2d4f] transition-colors bg-white placeholder-[#ccc]"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[14px] text-[#6b6b6b] mb-1.5">形式</label>
-                      <select
-                        value={formData.format}
-                        onChange={(e) => setFormData({ ...formData, format: e.target.value })}
-                        className="w-full border border-[#e0e0e0] px-4 py-2.5 text-[15px] focus:outline-none focus:border-[#1a2d4f] transition-colors bg-white appearance-none"
-                      >
-                        <option value="">選択してください</option>
-                        <option>対面</option>
-                        <option>オンライン</option>
-                        <option>ハイブリッド</option>
-                        <option>未定・相談したい</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-[14px] text-[#6b6b6b] mb-1.5">
-                      ご相談内容 <span className="text-[#8a6f45]">＊</span>
-                    </label>
-                    <textarea
-                      required
-                      rows={5}
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full border border-[#e0e0e0] px-4 py-2.5 text-[15px] focus:outline-none focus:border-[#1a2d4f] transition-colors bg-white resize-none"
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full py-3.5 bg-[#1a2d4f] text-white text-[15px] tracking-wide hover:bg-[#0f1c32] transition-colors"
-                  >
-                    この内容で相談する →
-                  </button>
-                </form>
-              )}
+            <div className="flex items-center gap-2">
+              <span className="w-1 h-1 rounded-full bg-[#b8a07a]" />
+              まずは30分のオンライン相談から
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-1 h-1 rounded-full bg-[#b8a07a]" />
+              ご予算・スケジュールの制約もご相談ください
             </div>
           </div>
+          <a
+            href="https://tecworks.co.jp/contact.html"
+            className="mt-10 block md:inline-block text-center px-10 py-3.5 bg-[#1a2d4f] text-white text-[15px] tracking-wide hover:bg-[#0f1c32] transition-colors"
+          >
+            お問い合わせフォームへ →
+          </a>
         </div>
       </section>
 
