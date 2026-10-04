@@ -745,9 +745,6 @@ export default function App() {
               )}
             </div>
           </div>
-          <p className="text-center text-[20px] font-light mt-16 text-[#1c1c1c]" style={{ fontFamily: "'Noto Serif JP', serif" }}>
-            「ちょっと話を聞いてみたい」から、どうぞ。
-          </p>
         </div>
       </section>
 
