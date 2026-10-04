@@ -621,7 +621,7 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#1c1c1c] text-white pt-16 pb-28 md:pb-16">
+      <footer className="bg-[#1c1c1c] text-white pt-16 pb-16">
         <div className="max-w-[1100px] mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-12 mb-12">
             <div>
@@ -673,21 +673,6 @@ export default function App() {
         </div>
       </footer>
 
-      {/* Fixed bottom buttons */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 flex md:hidden border-t border-[#e0e0e0]">
-        <a
-          href="#themes"
-          className="flex-1 py-4 text-center text-[14px] font-medium bg-white text-[#1c1c1c] border-r border-[#e0e0e0]"
-        >
-          講演テーマ
-        </a>
-        <a
-          href="https://tecworks.co.jp/contact.html"
-          className="flex-1 py-4 text-center text-[14px] font-medium bg-[#1a2d4f] text-white"
-        >
-          ご依頼・ご相談
-        </a>
-      </div>
       {/* Desktop fixed CTA */}
       <div className="hidden md:flex fixed bottom-8 right-8 gap-2 z-40">
         <a
