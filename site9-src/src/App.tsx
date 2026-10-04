@@ -484,9 +484,9 @@ export default function App() {
           </ul>
           <figure className="mt-12">
             <img
-              src="images/speaking-hall.jpg"
+              src="images/speaking-seminar.jpg"
               alt="セミナーで登壇する小野歩"
-              className="w-full aspect-[16/9] md:aspect-[21/9] object-cover object-[65%_50%]"
+              className="w-full aspect-[16/9] md:aspect-[21/9] object-cover object-[50%_35%]"
               loading="lazy"
             />
           </figure>
