@@ -779,7 +779,7 @@ export default function App() {
               <p className="text-[12px] tracking-[0.2em] text-[#b8a07a] mb-4 uppercase">Link</p>
               <ul className="space-y-2.5">
                 {[
-                  { label: '株式会社テックワークス', href: '#' },
+                  { label: '株式会社テックワークス', href: 'https://tecworks.co.jp/' },
                   { label: 'テックワークス note', href: '#' },
                   { label: 'tecHub 開催レポート', href: '#' },
                   { label: 'MENTA（キャリア相談）', href: '#' },
