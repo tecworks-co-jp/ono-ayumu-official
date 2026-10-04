@@ -331,28 +331,6 @@ export default function App() {
             </div>
           </div>
         </div>
-        {/* Stats strip */}
-        <div className="bg-[#1a2d4f]">
-          <div className="max-w-[1100px] mx-auto px-0 md:px-6 grid grid-cols-2 md:grid-cols-4">
-            {[
-              { num: '1,000', unit: '人＋', label: <>キャリア相談の実績</> },
-              { num: '3,500', unit: '人＋', label: <>主催・共催イベント<br />延べ参加者</> },
-              { num: '3', unit: '冊', label: <>商業出版の著書</> },
-              { num: '2022', unit: '〜', label: <>テックワークス創業</> },
-            ].map((stat, i) => (
-              <div
-                key={stat.num}
-                className={`py-7 md:py-8 px-3 md:px-6 text-center border-[rgba(255,255,255,0.12)] ${i < 3 ? (i % 2 === 0 ? 'border-r' : 'md:border-r') : ''} ${i < 2 ? 'border-b md:border-b-0' : ''}`}
-              >
-                <div className="text-white mb-2 leading-none whitespace-nowrap" style={{ fontFamily: "'Noto Serif JP', serif" }}>
-                  <span className="text-[34px] md:text-[44px] font-light">{stat.num}</span>
-                  <span className="text-[17px] md:text-[22px] font-light ml-0.5">{stat.unit}</span>
-                </div>
-                <div className="text-[13px] md:text-[15px] text-[rgba(255,255,255,0.7)] tracking-wide leading-[1.6]">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* Services */}
