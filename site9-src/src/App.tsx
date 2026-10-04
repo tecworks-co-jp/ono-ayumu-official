@@ -4,9 +4,9 @@ const NAV_ITEMS = [
   { label: '依頼できること', href: '#services' },
   { label: '講演テーマ', href: '#themes' },
   { label: '小野歩について', href: '#profile' },
+  { label: '事業内容', href: '#business' },
   { label: '実績', href: '#record' },
   { label: '著書', href: '#books' },
-  { label: '事業内容', href: '#business' },
   { label: 'よくある質問', href: '#faq' },
   { label: 'ご依頼・ご相談', href: '#contact' },
 ]
@@ -460,6 +460,26 @@ export default function App() {
         </div>
       </section>
 
+      {/* Business */}
+      <section id="business" className="py-24">
+        <div className="max-w-[1100px] mx-auto px-6">
+          <SectionTitle en="Business" className="mb-14">事業内容</SectionTitle>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-[#e0e0e0]">
+            {BUSINESS.map((b, i) => (
+              <div key={b.title} className="group bg-[#f7f7f5] hover:bg-white transition-colors p-5 md:p-7 flex flex-col border-r border-b border-[#e0e0e0]">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-[76px] h-[76px] shrink-0 overflow-hidden bg-[#eceae4]">
+                    <img src={`images/biz/biz-0${i + 1}.svg`} alt={b.title} className="w-full h-full object-cover" loading="lazy" />
+                  </div>
+                  <h3 className="text-[19px] md:text-[20px] font-semibold leading-[1.5] text-[#1c1c1c]" style={{ fontFamily: "'Noto Serif JP', serif" }}>{b.title}</h3>
+                </div>
+                <p className="text-[15px] text-[#4a4a4a] leading-[1.9]">{b.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Track Record */}
       <section id="record" className="py-24 bg-[#f7f7f5]">
         <div className="max-w-[1100px] mx-auto px-6">
@@ -524,26 +544,6 @@ export default function App() {
                     </li>
                   ))}
                 </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Business */}
-      <section id="business" className="py-24">
-        <div className="max-w-[1100px] mx-auto px-6">
-          <SectionTitle en="Business" className="mb-14">事業内容</SectionTitle>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-[#e0e0e0]">
-            {BUSINESS.map((b, i) => (
-              <div key={b.title} className="group bg-[#f7f7f5] hover:bg-white transition-colors p-5 md:p-7 flex flex-col border-r border-b border-[#e0e0e0]">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-[76px] h-[76px] shrink-0 overflow-hidden bg-[#eceae4]">
-                    <img src={`images/biz/biz-0${i + 1}.svg`} alt={b.title} className="w-full h-full object-cover" loading="lazy" />
-                  </div>
-                  <h3 className="text-[19px] md:text-[20px] font-semibold leading-[1.5] text-[#1c1c1c]" style={{ fontFamily: "'Noto Serif JP', serif" }}>{b.title}</h3>
-                </div>
-                <p className="text-[15px] text-[#4a4a4a] leading-[1.9]">{b.desc}</p>
               </div>
             ))}
           </div>
