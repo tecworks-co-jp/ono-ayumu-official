@@ -6,12 +6,6 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "8765"],
       "port": 8765
-    },
-    {
-      "name": "site9",
-      "runtimeExecutable": "pnpm",
-      "runtimeArgs": ["--dir", "site9-src", "run", "dev"],
-      "port": 8443
     }
   ]
 }
