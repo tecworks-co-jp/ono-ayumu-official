@@ -8,7 +8,7 @@ const NAV_ITEMS = [
   { label: '実績', href: '#record' },
   { label: '著書', href: '#books' },
   { label: 'よくある質問', href: '#faq' },
-  { label: 'ご依頼・ご相談', href: '#contact' },
+  { label: 'ご依頼・ご相談', href: 'https://tecworks.co.jp/contact.html' },
 ]
 
 const SERVICES = [
@@ -303,7 +303,7 @@ export default function App() {
               </p>
               <div className="hidden md:flex flex-wrap gap-3">
                 <a
-                  href="#contact"
+                  href="https://tecworks.co.jp/contact.html"
                   className="inline-block text-center px-6 py-3 bg-[#b8a07a] text-white text-[15px] tracking-wide hover:bg-[#a08e6a] transition-colors"
                 >
                   講演・研修を依頼する →
@@ -810,7 +810,7 @@ export default function App() {
           講演テーマ
         </a>
         <a
-          href="#contact"
+          href="https://tecworks.co.jp/contact.html"
           className="flex-1 py-4 text-center text-[14px] font-medium bg-[#1a2d4f] text-white"
         >
           ご依頼・ご相談
@@ -825,7 +825,7 @@ export default function App() {
           講演テーマ
         </a>
         <a
-          href="#contact"
+          href="https://tecworks.co.jp/contact.html"
           className="px-5 py-2.5 bg-[#1a2d4f] text-white text-[14px] shadow-sm hover:bg-[#0f1c32] transition-colors"
         >
           ご依頼・ご相談
