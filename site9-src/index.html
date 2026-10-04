@@ -11,7 +11,13 @@
     <!-- figma:body-start -->
     <div id="root"></div>
     <!-- 案一覧へ戻るピル（公開時には削除） -->
-    <div class="proposal-switch" style="position:fixed;left:14px;bottom:14px;z-index:60;display:flex;align-items:center;gap:10px;background:rgba(26,45,79,.92);color:#fff;border-radius:999px;padding:7px 14px;font-size:12px;font-family:sans-serif"><b style="font-weight:600;color:#b8a07a">案9</b><a href="../" style="color:#fff;border-bottom:1px solid rgba(255,255,255,.45);text-decoration:none">案一覧へ</a></div>
+    <style>
+      .proposal-switch{position:fixed;left:14px;bottom:80px;z-index:60;display:flex;align-items:center;gap:10px;background:rgba(26,45,79,.92);color:#fff;border-radius:999px;padding:7px 14px;font-size:12px;font-family:sans-serif}
+      .proposal-switch b{font-weight:600;color:#b8a07a}
+      .proposal-switch a{color:#fff;border-bottom:1px solid rgba(255,255,255,.45);text-decoration:none}
+      @media (min-width:768px){.proposal-switch{bottom:14px}}
+    </style>
+    <div class="proposal-switch"><b>案9</b><a href="../">案一覧へ</a></div>
     <script type="module" src="./src/main.tsx"></script>
     <!-- figma:body-end -->
   </body>

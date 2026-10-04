@@ -4,7 +4,9 @@ const NAV_ITEMS = [
   { label: '依頼できること', href: '#services' },
   { label: '講演テーマ', href: '#themes' },
   { label: '小野歩について', href: '#profile' },
-  { label: '協業のご相談', href: '#alliance' },
+  { label: '実績', href: '#record' },
+  { label: '著書', href: '#books' },
+  { label: '事業内容', href: '#business' },
   { label: 'よくある質問', href: '#faq' },
   { label: 'ご依頼・ご相談', href: '#contact' },
 ]
@@ -130,6 +132,51 @@ const BOOKS = [
   },
 ]
 
+const BUSINESS = [
+  {
+    title: 'システム開発事業',
+    desc: 'Webシステム・業務システムの受託開発、Webサイト制作、ITコンサルティングを手がけています。生成AIをはじめとする最新技術を取り入れ、少数精鋭のチームで要件整理から設計・開発・運用まで一貫して支援します。',
+  },
+  {
+    title: 'スクール運営事業',
+    desc: '未経験からITエンジニアへのキャリアチェンジを支援するスクール「tecUp」を運営。eラーニングと現役フリーランスメンターの指導で、技術力とあわせて現場で求められるヒューマンスキル、キャリアの描き方まで伴走します。',
+  },
+  {
+    title: 'プラットフォーム事業',
+    desc: 'IT勉強会・交流会コミュニティ「tecHub」を秋葉原で主宰。毎月のオフラインイベントとDiscordを軸に、会社員・フリーランス・企業が人脈づくりや案件相談、新規事業の創出につなげられる場を提供しています。',
+  },
+  {
+    title: 'イベント企画・運営事業',
+    desc: '独立後、最初に創業した事業です。セミナー・カンファレンス・交流会の企画運営から集客・営業支援まで一貫して対応。主催・共催イベントの参加者は延べ3,500人を超え、企業との共催やスポンサードも承っています。',
+  },
+  {
+    title: '出版事業',
+    desc: '『ITエンジニア働き方超大全』『ITエンジニア1年目の教科書』『IT仕事図鑑』の3冊を刊行。現場で得た知見を書籍として届けるほか、書籍の企画・執筆、教材やコンテンツの監修にも取り組んでいます。',
+  },
+  {
+    title: '講師事業',
+    desc: '企業の新人・内定者研修、採用イベントや学生向けのキャリア講演、カンファレンスやウェビナーへの登壇など、講師・スピーカーとして活動しています。テーマは貴社の課題に合わせてアレンジ可能です。',
+  },
+  {
+    title: '小売事業',
+    desc: '漢方・薬膳のセレクトショップと整体院を運営。「体の内側と外側から整える」をテーマに、美と健康をサポートする店舗づくりを行っています。店舗オーナーを目指す方のプロデュースにも対応しています。',
+  },
+  {
+    title: '創業支援・独立支援事業',
+    desc: '会社員から独立し3社を創業した経験をもとに、独立・起業を目指す方を支援します。フリーランス転向や事業立ち上げの相談、営業基盤づくり、MENTAでの1対1相談まで、それぞれの段階に合わせて伴走します。',
+  },
+]
+
+const RECORDS = [
+  { tag: 'YouTube', title: '伸びる1年目は何が違う？ 現場で差がつくスキルと学習習慣（TECH PLAY Channel）' },
+  { tag: 'YouTube', title: 'ITエンジニアのキャリアビジョン ― 市場価値を高める考え方（SCSK GROUP）' },
+  { tag: 'NewsPicks', title: '高年収？働き方自由？「エンジニア就活」の裏側（ハバヒロ就活カレッジ）' },
+  { tag: 'GLOBIS', title: 'ダイバーシティニュース テクノロジー 出演（グロービス学び放題）' },
+  { tag: 'Event', title: '『ITエンジニア1年目の教科書』出版記念トークイベント（代官山 蔦屋書店）' },
+  { tag: 'Interview', title: 'AI時代のITキャリア形成について（インプレスグループ）' },
+  { tag: 'Event', title: 'tecHub（IT交流会）を秋葉原で開催' },
+]
+
 const FAQS = [
   {
     q: '謝礼・費用はどのくらいですか？',
@@ -205,7 +252,7 @@ export default function App() {
               小野 歩　<span className="font-light tracking-[0.1em]">Ayumu Ono</span>
             </a>
             {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-8">
+            <nav className="hidden lg:flex items-center gap-6">
               {NAV_ITEMS.map((item) => (
                 <a
                   key={item.href}
@@ -218,7 +265,7 @@ export default function App() {
             </nav>
             {/* Mobile hamburger */}
             <button
-              className="md:hidden flex flex-col gap-[5px] p-2"
+              className="lg:hidden flex flex-col gap-[5px] p-2"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="メニュー"
             >
@@ -230,7 +277,7 @@ export default function App() {
         </div>
         {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-[#e0e0e0]">
+          <div className="lg:hidden bg-white border-t border-[#e0e0e0]">
             {NAV_ITEMS.map((item) => (
               <a
                 key={item.href}
@@ -259,7 +306,7 @@ export default function App() {
                 className="text-[26px] md:text-[42px] font-normal leading-[1.6] md:leading-[1.5] tracking-[0.08em] text-white mb-5 md:mb-8"
                 style={{ fontFamily: "'Noto Serif JP', serif" }}
               >
-                IT人材の可能性を、<br />一緒に広げませんか。
+                キャリアの可能性を、<br />一緒に広げませんか。
               </h1>
               <div className="hidden md:block w-12 h-px bg-[#b8a07a] mb-8" />
               <p className="text-[15px] md:text-[15.5px] text-[rgba(255,255,255,0.75)] md:text-[rgba(255,255,255,0.65)] leading-[1.85] md:leading-[1.9] mb-0 md:mb-8">
@@ -271,12 +318,6 @@ export default function App() {
                   className="inline-block text-center px-6 py-3 bg-[#b8a07a] text-white text-[15px] tracking-wide hover:bg-[#a08e6a] transition-colors"
                 >
                   講演・研修を依頼する →
-                </a>
-                <a
-                  href="#alliance"
-                  className="inline-block text-center px-6 py-2 md:py-3 text-[14px] md:text-[15px] text-[rgba(255,255,255,0.75)] underline underline-offset-4 md:no-underline md:border md:border-[rgba(255,255,255,0.4)] md:text-white tracking-wide hover:bg-[rgba(255,255,255,0.08)] transition-colors"
-                >
-                  協業・事業のご相談
                 </a>
               </div>
             </div>
@@ -309,17 +350,6 @@ export default function App() {
                 </div>
                 <div className="text-[13px] md:text-[15px] text-[rgba(255,255,255,0.7)] tracking-wide leading-[1.6]">{stat.label}</div>
               </div>
-            ))}
-          </div>
-        </div>
-        {/* Service tags strip */}
-        <div className="bg-[#f7f7f5] border-b border-[#e0e0e0]">
-          <div className="max-w-[1100px] mx-auto px-6 py-3 flex flex-wrap gap-6 text-[14px] text-[#6b6b6b] tracking-wide">
-            {['講演・研修', '対談・取材', '執筆・監修', '協業・アライアンス', 'キャリア支援・独立支援'].map((tag) => (
-              <span key={tag} className="flex items-center gap-2">
-                <span className="w-1 h-1 rounded-full bg-[#b8a07a] inline-block" />
-                {tag}
-              </span>
             ))}
           </div>
         </div>
@@ -482,90 +512,49 @@ export default function App() {
               「不断挑戦」で、ここまで来ました。
             </h3>
             {/* Bio paragraphs */}
-            <div className="space-y-5 mb-10 text-[15.5px] leading-[1.9] text-[#1c1c1c]">
+            <div className="space-y-5 text-[15.5px] leading-[1.9] text-[#1c1c1c]">
               <p>大分県大分市に生まれ、九州大学大学院を卒業後、NECに入社。ITエンジニアとしての基礎を培いながら、並行して独立の準備を進めていました。</p>
-              <p>これまでに1,000人を超えるエンジニアのキャリア相談に応じ、IT勉強会・交流会「tecHub」を秋葉原で主宰。主催・共催イベントの参加者は延べ3,500人を超えます。</p>
-              <p>「願望は知識から生まれる」。選択肢を知らなければ、人は願うことすらできない。だからこそ、話す・書く・つなぐという形で「知るきっかけ」を届け続けています。</p>
-            </div>
-            {/* Timeline */}
-            <div className="space-y-0 mb-10 relative">
-              <div className="absolute left-[3.5rem] top-0 bottom-0 w-px bg-[#e0e0e0]" />
-              {[
-                { year: '大学院', event: '九州大学大学院 卒業後、NECにてエンジニアとして勤務' },
-                { year: '2009', event: '11月、1社目を創業（イベント・セミナーの企画運営）' },
-                { year: '2017', event: '12月、2社目を創業（漢方セレクトショップ・整体院の運営）' },
-                { year: '2022', event: '7月、株式会社テックワークス創業。IT関連事業・キャリア支援・出版を展開' },
-              ].map((item) => (
-                <div key={item.year} className="flex gap-6 items-start pb-6 relative">
-                  <div className="text-[12.5px] text-[#8a6f45] w-[56px] shrink-0 pt-[3px] text-right">{item.year}</div>
-                  <div className="relative z-10 w-[7px] h-[7px] rounded-full bg-[#b8a07a] shrink-0 mt-[5px] ml-[-3.5px]" />
-                  <p className="text-[15.5px] text-[#1c1c1c] leading-[1.8]">{item.event}</p>
-                </div>
-              ))}
-            </div>
-            <div className="border-t border-[#e0e0e0] pt-8">
-              <p className="text-[14px] text-[#8a6f45] mb-6 tracking-[0.1em]">Q &amp; A</p>
-              <div className="space-y-6">
-                {[
-                  { q: '講演で大事にしていることは？', a: '一般論で終わらせないことです。' },
-                  { q: 'どんな相談が多いですか？', a: '新人研修と採用イベントの登壇、そしてコミュニティ絡みの共催企画が多いです。' },
-                  { q: '直接会うことはできますか？', a: 'はい。毎月開催しているtecHubにお越しいただければ、その場でお話しできます。' },
-                ].map((qa) => (
-                  <div key={qa.q} className="border-l-2 border-[#e0e0e0] pl-4">
-                    <p className="text-[14px] text-[#6b6b6b] mb-1">Q. {qa.q}</p>
-                    <p className="text-[16px] font-medium" style={{ fontFamily: "'Noto Serif JP', serif" }}>{qa.a}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-8 p-5 bg-[#f7f7f5] border border-[#e0e0e0]">
-                <p className="text-[12.5px] text-[#8a6f45] tracking-[0.12em] mb-1">理念</p>
-                <p className="text-[18px] font-light" style={{ fontFamily: "'Noto Serif JP', serif" }}>願望は知識から生まれる</p>
-              </div>
+              <p>独立後は、チーム作りと事業作りを追求。1社目としてイベント・セミナーの企画運営会社を創業し、営業支援とあわせて経営基盤をつくりました。</p>
+              <p>2社目として店舗運営会社を立ち上げ、漢方・薬膳のセレクトショップと整体院を運営。その後、3社目の株式会社テックワークスを創業しました。</p>
+              <p>現在はイベント事業、店舗運営事業、IT関連事業（システム開発・プログラミングスクール運営）、キャリア支援事業、出版と多角的に事業を展開しています。その経験を活かし、キャリア支援と独立支援にも取り組んでいます。</p>
+              <p>これまでにIT分野では1,000人を超えるエンジニアのキャリア相談に応じ、IT勉強会・交流会「tecHub」を秋葉原で主宰。主催・共催イベントの参加者は延べ3,500人を超えます。</p>
+              <p>その現場で得た知見を、3冊の著書としてまとめてきました。近年は企業での講演やウェビナー出演、メディア出演を通じて活躍の場を広げています。</p>
+              <p>「何のために仕事をしているのか？」という問いが今のキャリアを築いた原点です。そのため講演や書籍でも働く目的（キャリアビジョン）の大切さをお話しています。ただし、そういった願望は知識から生まれます。選択肢を知らなければ、描くことすらできないのです。だからこそ、書籍・イベント・講演という形で「知るきっかけ」を届け続けています。</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-24 bg-[#f7f7f5]">
+      {/* Track Record */}
+      <section id="record" className="py-24 bg-[#f7f7f5]">
         <div className="max-w-[1100px] mx-auto px-6">
           <div className="mb-14">
-            <SectionTitle en="Voices">ご依頼いただいた方の声</SectionTitle>
+            <SectionTitle en="Track Record" className="mb-4">登壇・掲載の実績</SectionTitle>
+            <p className="text-[17px] text-[#6b6b6b] leading-relaxed">
+              企業研修、カンファレンス、動画番組への出演、出版記念イベントの登壇など。
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#e0e0e0] border border-[#e0e0e0]">
-            {[
-              {
-                quote: '新人研修でお願いしました。「現場で本当に起きること」を具体的に話していただけたので、受講者の反応がまったく違いました。翌年も継続でお願いしています。',
-                role: 'IT企業 人事ご担当者様',
-              },
-              {
-                quote: 'カンファレンスに登壇いただきました。事前のすり合わせが丁寧で、当日は会場の熱量が明らかに上がりました。参加者アンケートでも満足度が最上位でした。',
-                role: 'カンファレンス主催者様',
-              },
-              {
-                quote: 'イベント共催でご一緒しました。「まずやってみましょう」と動いてくださるので進行が速く、次の企画の話まで自然に広がりました。',
-                role: '共催パートナー企業様',
-              },
-            ].map((v) => (
-              <div key={v.role} className="bg-white p-8 flex flex-col">
-                <p className="text-[26px] font-light text-[#e0e0e0] mb-3 leading-none" style={{ fontFamily: "'Noto Serif JP', serif" }}>"</p>
-                <p className="text-[15.5px] leading-[1.9] flex-1 mb-6">{v.quote}</p>
-                <p className="text-[13px] text-[#8a6f45] tracking-wide">— {v.role}</p>
-              </div>
+          <ul className="border-t border-[#e0e0e0]">
+            {RECORDS.map((r) => (
+              <li key={r.title} className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-5 py-5 px-1 md:px-2 border-b border-[#e0e0e0]">
+                <span className="self-start shrink-0 sm:min-w-[96px] text-center px-3 py-1 text-[12.5px] tracking-[0.1em] leading-[1.4] text-[#8a6f45] border border-[rgba(184,160,122,0.6)] rounded-full">{r.tag}</span>
+                <span className="text-[15.5px] leading-[1.8] text-[#1c1c1c] sm:pt-0.5">{r.title}</span>
+              </li>
             ))}
-          </div>
+          </ul>
           <figure className="mt-12">
             <img
               src="images/speaking-hall.jpg"
               alt="セミナーで登壇する小野歩"
               className="w-full aspect-[16/9] md:aspect-[21/9] object-cover object-[65%_50%]"
+              loading="lazy"
             />
           </figure>
         </div>
       </section>
 
       {/* Books */}
-      <section className="py-24 md:py-28 bg-[#0f1c32]">
+      <section id="books" className="py-24 md:py-28 bg-[#0f1c32]">
         <div className="max-w-[1100px] mx-auto px-6">
           <div className="mb-16 text-center">
             <p className="font-script italic font-medium text-[36px] md:text-[44px] leading-[1] tracking-[0.02em] text-[#b8a07a] mb-2 select-none">Books</p>
@@ -606,31 +595,20 @@ export default function App() {
         </div>
       </section>
 
-      {/* Alliance / Partnership */}
-      <section id="alliance" className="py-24 max-w-[1100px] mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-          <div>
-            <SectionTitle en="Alliance" className="mb-4">一緒に組みたい方へ</SectionTitle>
-            <p className="text-[16px] text-[#6b6b6b] leading-[1.9] mb-10">
-              「IT業界で働く人の可能性を広げる」という一点に向かえるなら、規模や業種は問いません。
-            </p>
-            <a
-              href="#contact"
-              className="inline-block px-6 py-3 bg-[#1a2d4f] text-white text-[15px] tracking-wide hover:bg-[#0f1c32] transition-colors"
-            >
-              協業について相談する →
-            </a>
-          </div>
-          <div className="grid grid-cols-1 gap-px bg-[#e0e0e0] border border-[#e0e0e0]">
-            {[
-              { title: 'イベント共催・企画運営', desc: 'IT系勉強会・カンファレンスの共催、企画・運営サポート' },
-              { title: 'コンテンツ・メディア連携', desc: '記事・動画・ポッドキャストなど、メディア企画での連携' },
-              { title: '人材・育成での連携', desc: 'エンジニア採用・育成プログラムの設計・提供' },
-              { title: '開発・事業のご相談', desc: 'テックワークスが手がける開発・事業への参画・連携' },
-            ].map((item) => (
-              <div key={item.title} className="bg-white px-7 py-5 hover:bg-[#f7f7f5] transition-colors">
-                <h3 className="text-[16px] font-medium mb-1.5" style={{ fontFamily: "'Noto Serif JP', serif" }}>{item.title}</h3>
-                <p className="text-[14.5px] text-[#6b6b6b] leading-[1.7]">{item.desc}</p>
+      {/* Business */}
+      <section id="business" className="py-24">
+        <div className="max-w-[1100px] mx-auto px-6">
+          <SectionTitle en="Business" className="mb-14">事業内容</SectionTitle>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-[#e0e0e0]">
+            {BUSINESS.map((b, i) => (
+              <div key={b.title} className="group bg-[#f7f7f5] hover:bg-white transition-colors p-5 md:p-7 flex flex-col border-r border-b border-[#e0e0e0]">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-[76px] h-[76px] shrink-0 overflow-hidden bg-[#eceae4]">
+                    <img src={`images/biz/biz-0${i + 1}.svg`} alt={b.title} className="w-full h-full object-cover" loading="lazy" />
+                  </div>
+                  <h3 className="text-[19px] md:text-[20px] font-semibold leading-[1.5] text-[#1c1c1c]" style={{ fontFamily: "'Noto Serif JP', serif" }}>{b.title}</h3>
+                </div>
+                <p className="text-[15px] text-[#4a4a4a] leading-[1.9]">{b.desc}</p>
               </div>
             ))}
           </div>
