@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:pages": "vite build --base ./ --outDir ../site9 --emptyOutDir",
+    "build:pages": "vite build --base ./ --outDir .pages-dist --emptyOutDir && rm -rf ../index.html ../assets ../images ../robots.txt && cp -R .pages-dist/. .. && rm -rf .pages-dist",
     "preview": "vite preview",
     "format": "oxfmt"
   },
