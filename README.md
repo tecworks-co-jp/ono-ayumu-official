@@ -57,9 +57,9 @@
 | https://tecworks-co-jp.github.io/ono-ayumu-official/site9 | 案9（Figma Make・React版をビルドして公開） |
 
 - 各案は **CSS/JSを共有せず自己完結** させています（案ごとにデザインを自由に変えられるようにするため）。
-- 各案の右下（案5はPAGE TOPボタンと重なるため左下）に「案一覧へ」戻るピルを表示しています。**公開時には削除**してください（各案の `index.html` 内の `proposal-switch` ブロック。案2・案4・案5・案6・案7・案8は `assets/style.css` の `.proposal-switch` も）。
+- 各案（案9を除く）の右下（案5はPAGE TOPボタンと重なるため左下）に「案一覧へ」戻るピルを表示しています。**公開時には削除**してください（各案の `index.html` 内の `proposal-switch` ブロック。案2・案4・案5・案6・案7・案8は `assets/style.css` の `.proposal-switch` も）。
 - 案を追加するときは `siteN/` ディレクトリを作り、ルートの `index.html` にカードを1枚追加します。
-- **案9だけは React 製**です。`site9/` はビルド結果なので直接編集せず、`site9-src/` を編集してビルドし直します（要 Node.js・pnpm・git-lfs）。「案一覧へ」ピルは `site9-src/index.html` にあります。
+- **案9だけは React 製**です。`site9/` はビルド結果なので直接編集せず、`site9-src/` を編集してビルドし直します（要 Node.js・pnpm・git-lfs）。案9には「案一覧へ」ピルはありません（削除済み）。
 
   ```bash
   cd site9-src
